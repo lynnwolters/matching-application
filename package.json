@@ -1,20 +1,36 @@
 {
   "name": "matching-application",
   "version": "1.0.0",
-  "description": "",
+  "description": "Matching application repository voor blok tech.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "serve": "nodemon index.js",
+    "build": "babel src -d build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lynnwolters/matching-application.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "product",
+    "design",
+    "companies",
+    "jobseekers",
+    "matching"
+  ],
+  "author": {
+    "name": "Lynn Wolters",
+    "e-mail": "lynn.wolters27@gmail.com"
+  },
+  "license": "BSD 3-Clause License",
   "bugs": {
     "url": "https://github.com/lynnwolters/matching-application/issues"
   },
-  "homepage": "https://github.com/lynnwolters/matching-application#readme"
+  "homepage": "https://github.com/lynnwolters/matching-application#readme",
+  "dependencies": {
+    "@babel/cli": "^7.20.7",
+    "camelcase": "^7.0.1"
+  }
 }
