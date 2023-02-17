@@ -1,0 +1,42 @@
+/*********/
+/* MOBIEL*/
+/*********/
+
+main {
+    padding: 0 1em;
+}
+
+main section form h2 {
+    color: var(--title-text-color);
+}
+
+main section form label {
+    color: var(--p-text-color);
+}
+
+main section form p {
+    color: var(--p-text-color);
+}
+
+main section form input {
+    background-color: var(--header-fill-color);
+    border: solid 0.1em var(--input-field-line-color);
+    border-radius: 1em;
+    padding: 1em 0;
+    width: 100%;
+}
+
+main section form button {
+    background-color: var(--button-fill-color);
+    color: var(--button-text-color);
+    text-decoration: none;
+    border: none;
+    text-align: center;
+    width: 100%;
+    padding: 1em 0;
+    border-radius: 1em;
+}
+
+main section form button img {
+    padding-left: 0.6em;
+}

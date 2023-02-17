@@ -1,0 +1,23 @@
+/*********/
+/* MOBIEL*/
+/*********/
+
+header {
+    display: flex;
+}
+
+header > img {
+    opacity: 60%;
+    border-radius: 1.4em;
+    margin: 0 auto;
+    position: relative;
+}
+
+header button {
+    background-color: var(--button-fill-color);
+    border-radius: 1000em;
+    width: 4em;
+    height: 4em;
+    border: none;
+    position: absolute;
+}
