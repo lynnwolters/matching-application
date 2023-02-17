@@ -1,0 +1,62 @@
+/*********/
+/* MOBIEL*/
+/*********/
+
+header {
+    display: grid;
+    grid-template-columns: repeat(1fr, 2fr);
+    grid-column-gap: 1em;
+    background-color: var(--header-fill-color);
+    padding: 0 1em 1.4em 1em;
+}
+
+header > img {
+    opacity: 60%;
+    border-radius: 1.4em;
+}
+
+header section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+header section h2 {
+    color: var(--title-text-color);
+    font-size: 1.4em;
+}
+
+header section span {
+    margin-top: 1em;
+    display: flex;
+}
+
+header section p {
+    font-size: 1em;
+    color: var(--p-text-color);
+}
+
+header section span p:nth-of-type(2) {
+    padding-left: 0.6em;
+}
+
+header section span p img {
+    padding-right: 0.6em;
+}
+
+header a {
+    background-color: var(--button-fill-color);
+    color: var(--button-text-color);
+    text-decoration: none;
+    text-align: center;
+    grid-column: span 2;
+    width: 100%;
+    padding: 1em 0;
+    margin: 0 auto;
+    margin-top: 2.4em;
+    border-radius: 1em;
+}
+
+header a img {
+    padding-right: 0.6em;
+}
