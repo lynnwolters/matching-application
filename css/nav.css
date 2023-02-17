@@ -2,12 +2,12 @@
 /* MOBIEL*/
 /*********/
 
-nav {
+body nav:nth-of-type(1) {
     background-color: var(--header-fill-color);
     padding: 2.6em 1em;
 }
 
-nav h1 {
+body nav:nth-of-type(1) h1 {
     color: var(--title-text-color);
     text-align: center;
     font-size: 1.4em;

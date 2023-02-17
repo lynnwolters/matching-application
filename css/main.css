@@ -1,0 +1,19 @@
+/*********/
+/* MOBIEL*/
+/*********/
+
+main {
+    margin: 2.6em 1em;
+}
+
+main section h2 {
+    color: var(--title-text-color);
+    font-size: 1.4em;
+}
+
+main section p {
+    font-size: 1em;
+    color: var(--p-text-color);
+    margin-top: 0.6em;
+    margin-bottom: 1.8em;
+}
