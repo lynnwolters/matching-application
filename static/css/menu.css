@@ -16,3 +16,9 @@ body nav:nth-of-type(2) ul {
     padding-top: 1.4em;
     margin: 0 1em
 }
+
+body nav:nth-of-type(2) ul li .menu-item-geselecteerd {
+    width: 0.5em;
+    height: 0.5em;
+    background-color: red;
+}
