@@ -6,18 +6,32 @@ header {
     display: flex;
 }
 
-header > img {
+header .profile-picture-container {
     opacity: 60%;
     border-radius: 1.4em;
     margin: 0 auto;
     position: relative;
 }
 
-header button {
+header .profile-picture-container > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1em;
+}
+
+header .profile-picture-container button {
     background-color: var(--button-fill-color);
     border-radius: 1000em;
     width: 4em;
     height: 4em;
     border: none;
     position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+header .profile-picture-container button {
+
 }

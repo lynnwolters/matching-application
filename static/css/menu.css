@@ -8,6 +8,7 @@ body nav:nth-of-type(2) {
     position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 1000;
 }
 
 body nav:nth-of-type(2) ul {
@@ -20,5 +21,7 @@ body nav:nth-of-type(2) ul {
 body nav:nth-of-type(2) ul li .menu-item-geselecteerd {
     width: 0.5em;
     height: 0.5em;
-    background-color: red;
+    background-color: var(--button-fill-color);
+    border-radius: 1000em;
+    margin: 0 auto;
 }

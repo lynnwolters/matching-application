@@ -1,0 +1,9 @@
+body > button:last-of-type {
+    z-index: 2000;
+    width: 6em;
+    height: 6em;
+    border-radius: 1000em;
+    border: none;
+    background-color: var(--save-button-fill-color);
+    margin: 0 1em;
+}

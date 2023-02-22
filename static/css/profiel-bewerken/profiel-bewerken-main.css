@@ -8,6 +8,7 @@ main {
 
 main section form h2 {
     color: var(--title-text-color);
+    margin: 1.4em 0;
 }
 
 main section form label {
@@ -24,6 +25,7 @@ main section form input {
     border-radius: 1em;
     padding: 1em 0;
     width: 100%;
+    margin: 1em 0;
 }
 
 main section form button {
@@ -35,6 +37,7 @@ main section form button {
     width: 100%;
     padding: 1em 0;
     border-radius: 1em;
+    margin: 1em 0;
 }
 
 main section form button img {

@@ -12,6 +12,8 @@
 
 body {
   background-color: var(--background-fill-color);
+  position: relative;
+  margin-bottom: 6em;
 }
 
 /*********/
@@ -27,6 +29,7 @@ body {
 :root {
   /* Colors */
   --button-fill-color: #6337C2;
+  --save-button-fill-color: gray;
   --header-fill-color: #0C0C0C;
   --background-fill-color: #1A1720;
   --title-text-color: #D8D8D8;
