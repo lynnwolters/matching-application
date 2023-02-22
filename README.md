@@ -6,19 +6,19 @@ Welkom bij de repository voor de matching application PixelJobs! Met deze applic
 
 ## Hoe installeer je deze applicatie?
 
-Voer het volgende in je terminal in:
+1. Voer het volgende in je terminal in:
 
 ```js
 git clone https://github.com/lynnwolters/matching-application
 ```
 
-Om de applicatie op de juiste manier te laten draaien heb je Node.js en NPM nodig. Heb je deze nog niet geïnstalleerd, dan doe je dat door de volgende command line in te voeren in je terminal: 
+2. Om de applicatie op de juiste manier te laten draaien heb je Node.js en NPM nodig. Heb je deze nog niet geïnstalleerd, dan doe je dat door de volgende command line in te voeren in je terminal: 
 
 ```js
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 ```
 
-Met deze command lines kan je kijken of Node.js en NMP geïnstalleerd is:
+3. Met deze command lines kan je kijken of Node.js en NMP succesvol geïnstalleerd zijn:
 ```js
 node -v 
 npm -v 
