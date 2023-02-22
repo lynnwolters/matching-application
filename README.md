@@ -11,3 +11,9 @@ Voer het volgende in je terminal in:
 ```js
 git clone https://github.com/lynnwolters/matching-application
 ```
+
+## Om de applicatie op de juiste manier te laten draaien moet je Node.js en NPM installeren:
+
+```js
+
+```
