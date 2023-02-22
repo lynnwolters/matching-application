@@ -12,8 +12,17 @@ Voer het volgende in je terminal in:
 git clone https://github.com/lynnwolters/matching-application
 ```
 
-Om de applicatie op de juiste manier te laten draaien moet je Node.js en NPM installeren:
+Om de applicatie op de juiste manier te laten draaien heb je Node.js en NPM nodig. Heb je deze nog niet geïnstalleerd, dan doe je dat door de volgende command line in te voeren in je terminal: 
 
 ```js
-
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 ```
+
+Met deze command lines kan je kijken of Node.js en NMP geïnstalleerd is:
+```js
+node -v 
+npm -v 
+```
+
+Is het niet gelukt? Raadpleeg dan de volgende pagina:
+https://github.com/nvm-sh/nvm#troubleshooting-on-macos
