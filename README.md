@@ -26,7 +26,7 @@ npm -v
 
 Je kan nu de applicatie openen!
 
-Check de wiki voor meer informatie over dit project!
+Check de wiki voor meer informatie over dit project:
 https://github.com/lynnwolters/matching-application/wiki
 
 Is het niet gelukt? Raadpleeg dan de volgende pagina:
