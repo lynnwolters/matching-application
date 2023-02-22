@@ -7,7 +7,6 @@ header {
 }
 
 header .profile-picture-container {
-    opacity: 60%;
     border-radius: 1.4em;
     margin: 0 auto;
     position: relative;
@@ -18,6 +17,7 @@ header .profile-picture-container > img {
     height: 100%;
     object-fit: cover;
     border-radius: 1em;
+    opacity: 60%;
 }
 
 header .profile-picture-container button {
@@ -30,8 +30,4 @@ header .profile-picture-container button {
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 50%);
-}
-
-header .profile-picture-container button {
-
 }
