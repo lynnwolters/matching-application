@@ -24,5 +24,7 @@ node -v
 npm -v 
 ```
 
+Je kan nu de applicatie openen!
+
 Is het niet gelukt? Raadpleeg dan de volgende pagina:
 https://github.com/nvm-sh/nvm#troubleshooting-on-macos
