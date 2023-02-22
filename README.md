@@ -28,3 +28,6 @@ Je kan nu de applicatie openen!
 
 Is het niet gelukt? Raadpleeg dan de volgende pagina:
 https://github.com/nvm-sh/nvm#troubleshooting-on-macos
+
+Check de wiki voor meer informatie over dit project!
+https://github.com/lynnwolters/matching-application/wiki
