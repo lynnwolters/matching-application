@@ -1,6 +1,6 @@
-/*********/
-/* MOBIEL*/
-/*********/
+/*************/
+/* INDEX NAV */
+/************/
 
 body nav:nth-of-type(1) {
     background-color: var(--header-fill-color);

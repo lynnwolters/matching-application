@@ -11,6 +11,10 @@ main section form h2 {
     margin: 1.4em 0;
 }
 
+/*************************/
+/* PROFIEL BEWERKEN MAIN */
+/*************************/
+
 main section form label {
     color: var(--p-text-color);
 }
