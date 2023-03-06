@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 
-// LOCALHOST PORT
+// LOCALHOST PORT //
 const PORT = process.env.PORT || 8000
 
 // NODIG OM DATA OP EEN DYNAMISCHE MANIER IN TE LADEN
