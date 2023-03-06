@@ -17,7 +17,8 @@ require('dotenv').config()
 // MONGO DB CONNECTIE 
 const MongoClient = require('mongodb').MongoClient;
 
-const uri = 'mongodb+srv://<username>:<{encodedOptionParam}>@matching-application.wmyg2ya.mongodb.net/?retryWrites=true&w=majority'
+const uri = 'mongodb+server://' + process.env.DB_USERNAME + ':' + process.env.DB_PASS + '@' +
+process.env.DB_HOST + '/' + process.env.DB_NAME + '?retryWrites=true&w-majority'
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -57,4 +58,4 @@ app.use((req, res, next) => {
 })
 
 // LOCALHOST LATEN WERKEN
-app.listen(PORT, console.log('Running on port: ${PORT}'));
+app.listen(PORT, console.log(`Running on port: ${PORT}`));
