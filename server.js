@@ -15,20 +15,22 @@ const myData = JSON.parse(jsonData);
 require('dotenv').config()
 
 // MONGO DB CONNECTIE 
-// const { MongoClient } = require('mongodb')
+const { MongoClient } = require('mongodb')
 
-// const uri = 'mongodb+srv://' + process.env.DB_USERNAME + ':' + process.env.DB_PASS + '@' +
-// process.env.DB_HOST + '/' + process.env.DB_NAME + '?retryWrites=true&w=majority'
+const uri = 'mongodb+srv://' + process.env.DB_USERNAME + ':' + process.env.DB_PASS + '@' +
+process.env.DB_NAME + '.' + process.env.DB_HOST + '/' + '?retryWrites=true&w=majority'
 
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+console.log(uri)
 
-// client.connect((err) => {
-//      if (err) {
-//         console.error('Error connecting to MongoDB:', err);
-//     } else {
-//         console.log('Connected to MongoDB!');
-//     }
-// })
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+
+client.connect((err) => {
+     if (err) {
+        console.error('Error connecting to MongoDB:', err);
+    } else {
+        console.log('Connected to MongoDB!');
+    }
+})
 
 // VIEW ENGINES INLADEN
 app.set('view engine', 'ejs');
