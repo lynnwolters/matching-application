@@ -25,6 +25,10 @@ body {
   margin-bottom: 6em;
 }
 
+a, button {
+  cursor: pointer;
+}
+
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/

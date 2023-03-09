@@ -10,6 +10,27 @@ const fs = require('fs')
 const jsonData = fs.readFileSync('static/data/data.json', 'utf8')
 const myData = JSON.parse(jsonData)
 
+// SERVER SUBMIT REQUEST LATEN AFHANDELEN
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: true }))
+
+app.post('/submit', function(req, res) {
+	const inputValue = req.body.inputValue
+
+	res.redirect('/')
+})
+
+// OPGESLAGEN SUMBIT WAARDEN LATEN ZIEN OP PAGINA
+app.get('/', function(req, res) {
+	const values = ['waarde1', 'waarde2', 'waarde3']
+	res.render('index', { values: values })
+})
+
+app.listen(3000, function() {
+	console.log('Applicatie gestart op poort 3000')
+})
+
 //  NODIG OM .ENV BESTAND IN TE LADEN
 require('dotenv').config()
 

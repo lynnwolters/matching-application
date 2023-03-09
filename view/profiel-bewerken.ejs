@@ -47,10 +47,13 @@
         <section>
 
             <!-- ALGEMENE INFORMATIE -->
-            <form>
+            <form action="/submit" method="POST">
+
                 <h2>Algemene informatie</h2>
+
                 <label for="voornaam">Voornaam</label>
-                <input type="text">
+                <input type="text" name="inputValue">
+
                 <label for="achternaam">Achternaam</label>
                 <input type="text">
                 <label for="leeftijd">Leeftijd</label>
@@ -80,7 +83,7 @@
     </main>
 
     <!-- SAVE BUTTON -->
-    <button><img src="./img/save.svg" alt="save"></button>
+    <button type="submit"><img src="./img/save.svg" alt="save"></button>
 
     <!-- MENU -->
     <% include('partials/menu.ejs') %>
