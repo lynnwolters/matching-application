@@ -38,16 +38,26 @@ body main section form button:nth-of-type(1), main section form button:nth-of-ty
 }
 
 body main section form button:nth-of-type(1) img, main section form button:nth-of-type(2) img {
-    margin-left: 1em;
+    margin-right: 1em;
 }
 
 body main section:nth-of-type(1) form > button:last-of-type {
-    z-index: 200;
-    width: 5.4em;
-    aspect-ratio: 1/1;
-    border-radius: 2000em;
+    z-index: 100;
+    border-radius: 1em;
     border: none;
     background-color: var(--save-button-color);
+    width: 100%;
+    margin: 2em 0;
+    padding: 1em;
+    color: var(--button-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body main section:nth-of-type(1) form > button:last-of-type img {
+    max-width: 100%;
+    margin-right: 1em;
 }
 
 body main section:nth-of-type(1) form > button:last-of-type:hover {
