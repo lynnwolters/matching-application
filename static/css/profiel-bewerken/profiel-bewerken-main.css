@@ -12,7 +12,7 @@ body main section form h2 {
 }
 
 body main section form label {
-    color: var(--p-color);
+    color: var(--button-text-color);
 }
 
 body main section form input {
@@ -22,12 +22,12 @@ body main section form input {
     padding: 1em 1em;
     width: 100%;
     margin: 1em 0;
-    color: var(--button-text-color);
+    color: var(--p-color);
 }
 
 body main section form button:nth-of-type(1), main section form button:nth-of-type(2) {
     background-color: var(--button-color);
-    color: var(--button-color);
+    color: var(--button-text-color);
     text-decoration: none;
     border: none;
     text-align: center;
@@ -48,4 +48,9 @@ body main section:nth-of-type(1) form > button:last-of-type {
     border-radius: 2000em;
     border: none;
     background-color: var(--save-button-color);
+}
+
+body main section:nth-of-type(1) form > button:last-of-type:hover {
+    transition: .2s ease-out;
+    background-color: var(--save-button-hover-color);
 }

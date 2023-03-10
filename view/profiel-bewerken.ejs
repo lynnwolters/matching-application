@@ -37,7 +37,7 @@
     <header>
         <div class="profile-picture-container">
             <img src="./img/profiel-foto.jpg" alt="profiel-foto">
-            <button><img src="./img/camera.svg" alt="camera"></button>
+            <button class="button-hover"><img src="./img/camera.svg" alt="camera"></button>
         </div>
     </header>
 
@@ -45,46 +45,45 @@
     <main>
         <section>
 
-            
             <form action="/index" method="POST">
 
                 <!-- ALGEMENE INFORMATIE -->
                 <h2>Algemene informatie</h2>
 
                 <label>Voornaam</label>
-                <input type="text" name="firstName">
+                <input placeholder="Vul in..." type="text" name="firstName">
 
                 <label>Achternaam</label>
-                <input type="text" name="lastName">
+                <input placeholder="Vul in..." type="text" name="lastName">
 
                 <label>Leeftijd</label>
-                <input type="number" name="age">
+                <input placeholder="Vul in..." type="number" name="age">
 
                 <label>Woonplaats</label>
-                <input type="text" name="residence">
+                <input placeholder="Vul in..." type="text" name="residence">
 
                 <label>Functie</label>
-                <input type="text" name="jobFunction">
+                <input placeholder="Vul in..." type="text" name="jobFunction">
 
                 <!-- GEDETAILLEERDE INFORMATIE -->
                 <h2>Gedetailleerde informatie</h2>
                 
                 <label>Over mij</label>
-                <input type="text" name="aboutMe">
+                <input placeholder="Vul in..." type="text" name="aboutMe">
 
                 <label>Opleidingen</label>
-                <button>Opleidingen toevoegen<img src="./img/toevoegen.svg" alt="toevoegen"></button>
-                <input type="text" name="education">
+                <button class="button-hover">Opleidingen toevoegen<img src="./img/toevoegen.svg" alt="toevoegen"></button>
+                <input placeholder="Vul in..." type="text" name="education">
 
                 <label>Werkervaring</label>
-                <button>Werkervaring toevoegen<img src="./img/toevoegen.svg" alt="toevoegen"></button>
-                <input type="text" name="workExperience">
+                <button class="button-hover">Werkervaring toevoegen<img src="./img/toevoegen.svg" alt="toevoegen"></button>
+                <input placeholder="Vul in..." type="text" name="workExperience">
 
                 <label>Soft skills</label>
-                <input type="text" name="softSkills">
+                <input placeholder="Vul in..." type="text" name="softSkills">
 
                 <label>Hard skills</label>
-                <input type="text" name="hardSkills">
+                <input placeholder="Vul in..." type="text" name="hardSkills">
 
                 <!-- SAVE BUTTON -->
                 <button name="submit" type="submit"><img src="./img/save.svg" alt="save"></button>
@@ -96,6 +95,16 @@
 
     <!-- MENU -->
     <% include('partials/menu.ejs') %>
+
+    <!-- MENU -->
+    <nav>
+        <ul>
+            <li><a><img src="./img/matchen.svg" alt="matchen"></a></li>
+            <li><a><img src="./img/chatten.svg" alt="chatten"></a></li>
+            <li><a href="/index"><img src="./img/profiel.svg" alt="profiel"><div class="menu-item-geselecteerd"></div></a></li>
+            <li><a><img src="./img/instellingen.svg" alt="instellingen"></a></li>
+        </ul>
+    </nav>
     
 </body>
 
