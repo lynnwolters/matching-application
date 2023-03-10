@@ -5,33 +5,21 @@ const app = express()
 // LOCALHOST PORT //
 const PORT = process.env.PORT || 8000
 
+app.listen(PORT, function() {
+	console.log('Applicatie gestart op poort ' + PORT)
+})
+
 // NODIG OM DATA OP EEN DYNAMISCHE MANIER IN TE LADEN
 const fs = require('fs')
 const jsonData = fs.readFileSync('static/data/data.json', 'utf8')
-const myData = JSON.parse(jsonData)
+let myData = JSON.parse(jsonData)
 
-// SERVER SUBMIT REQUEST LATEN AFHANDELEN
-const bodyParser = require('body-parser');
-
+// BODYPARSER LATEN WERKEN
+const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
-app.post('/submit', function(req, res) {
-	const inputValue = req.body.inputValue
-
-	res.redirect('/')
-})
-
-// OPGESLAGEN SUMBIT WAARDEN LATEN ZIEN OP PAGINA
-app.get('/', function(req, res) {
-	const values = ['waarde1', 'waarde2', 'waarde3']
-	res.render('index', { values: values })
-})
-
-app.listen(3000, function() {
-	console.log('Applicatie gestart op poort 3000')
-})
-
-//  NODIG OM .ENV BESTAND IN TE LADEN
+// NODIG OM .ENV BESTAND IN TE LADEN
 require('dotenv').config()
 
 // MONGO DB CONNECTIE 
@@ -59,11 +47,59 @@ app.set('views', 'view')
 // STATIC CONTENT INLADEN
 app.use(express.static('static'))
 
+// FORM POST REQUEST AFHANDELEN
+app.post('/index', function(req, res) {
+	console.log(req.body)
+
+	console.log(req.body.firstName)
+	myData[0].firstName = req.body.firstName
+
+	console.log(req.body.lastName)
+	myData[0].lastName = req.body.lastName
+
+	console.log(req.body.age)
+	myData[0].age = req.body.age
+
+	console.log(req.body.residence)
+	myData[0].residence = req.body.residence
+
+	console.log(req.body.jobFunction)
+	myData[0].jobFunction = req.body.jobFunction
+
+	console.log(req.body.aboutMe)
+	myData[0].aboutMe = req.body.aboutMe
+
+	console.log(req.body.education)
+	myData[0].education = req.body.education
+
+	console.log(req.body.experience)
+	myData[0].experience = req.body.experience
+
+	console.log(req.body.softSkills)
+	myData[0].softSkills = req.body.softSkills
+
+	console.log(req.body.hardSkills)
+	myData[0].hardSkills = req.body.hardSkills
+
+	res.redirect('/index')
+})
+
 // INDEX.EJS INLADEN
 app.get('/index', onHome)
 function onHome(req, res) {
+	console.log(myData[0])
+
 	res.render('index.ejs', {
-		firstName: myData[0].firstName
+		firstName: myData[0].firstName,
+		lastName: myData[0].lastName,
+		age: myData[0].age,
+		residence: myData[0].residence,
+		jobFunction: myData[0].jobFunction,
+		aboutMe: myData[0].aboutMe,
+		education: myData[0].education,
+		experience: myData[0].experience,
+		softSkills: myData[0].softSkills,
+		hardSkills: myData[0].hardSkills,
 	})
 }
 
@@ -77,6 +113,3 @@ function profielBewerken(req, res) {
 app.use((req, res) => {
 	res.status(404).send('<h1>Deze pagina kan niet gevonden worden.</h1>')
 })
-
-// LOCALHOST LATEN WERKEN
-app.listen(PORT, console.log(`Running on port: ${PORT}`))

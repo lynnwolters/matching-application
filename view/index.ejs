@@ -27,31 +27,20 @@
 
 <body>
 
-    <% if (values.length === 0) { %>
-    <p>Geen waarden gevonden.</p>
-    <% } else { %>
-    <ul>
-        <% values.forEach(function(value) { %>
-        <li><%= value %></li>
-        <% }); %>
-    </ul>
-    <% } %>
-
     <!-- NAV -->
     <nav>
         <h1>Profiel</h1>
-        <h1>Hi, I am <%= firstName  %></h1>
     </nav>
 
     <!-- HEADER -->
     <header>
         <img src="./img/profiel-foto.jpg" alt="profiel-foto">
         <section>
-            <h2>Voor -en achternaam</h2>
-            <p>Functie</p>
+            <h2> <%= firstName %> <%= lastName %> </h2>
+            <p> <%= jobFunction %> </p>
             <span>
-                <p><img src="./img/leeftijd.svg" alt="leeftijd">Leeftijd</p>
-                <p><img src="./img/locatie.svg" alt="locatie">Woonplaats</p>
+                <p><img src="./img/leeftijd.svg" alt="leeftijd"> <%= age %> </p>
+                <p><img src="./img/locatie.svg" alt="locatie"> <%= residence %> </p>
             </span>
         </section>
         <a href="/profiel-bewerken"><img src="./img/bewerk.svg" alt="bewerk">Profiel bewerken</a>
@@ -61,28 +50,28 @@
     <main>
         <section>
             <h2>Over mij</h2>
-            <p>Nog invullen</p>
+            <p> <%= aboutMe %> </p>
         </section>
         <section>
             <h2>Opleidingen</h2>
-            <p>Nog invullen</p>
+            <p> <%= education %> </p>
         </section>
         <section>
             <h2>Werkervaring</h2>
-            <p>Nog invullen</p>
+            <p> <%= experience %> </p>
         </section>
         <section>
             <h2>Soft skills</h2>
-            <p>Nog invullen</p>
+            <p> <%= softSkills %> </p>
         </section>
         <section>
             <h2>Hard skills</h2>
-            <p>Nog invullen</p>
+            <p> <%= hardSkills %> </p>
         </section>
     </main>
 
     <!-- MENU -->
-    <% { include('partials/menu.ejs') } %>
+    <% include('partials/menu.ejs') %>
     
 </body>
 

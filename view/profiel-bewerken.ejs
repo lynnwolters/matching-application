@@ -46,44 +46,54 @@
     <main>
         <section>
 
-            <!-- ALGEMENE INFORMATIE -->
-            <form action="/submit" method="POST">
+            
+            <form action="/index" method="POST">
 
+                <!-- ALGEMENE INFORMATIE -->
                 <h2>Algemene informatie</h2>
 
                 <label for="voornaam">Voornaam</label>
-                <input type="text" name="inputValue">
+                <input type="text" name="firstName">
 
                 <label for="achternaam">Achternaam</label>
-                <input type="text">
-                <label for="leeftijd">Leeftijd</label>
-                <input type="number">
-                <label for="woonplaats">Woonplaats</label>
-                <input type="text">
-                <label for="functie">Functie</label>
-                <input type="text">
-            </form>
+                <input type="text" name="lastName">
 
-            <!-- GEDETAILLEERDE INFORMATIE -->
-            <form>
+                <label for="leeftijd">Leeftijd</label>
+                <input type="number" name="age">
+
+                <label for="woonplaats">Woonplaats</label>
+                <input type="text" name="residence">
+
+                <label for="functie">Functie</label>
+                <input type="text" name="jobFunction">
+
+                <!-- GEDETAILLEERDE INFORMATIE -->
                 <h2>Gedetailleerde informatie</h2>
+                
                 <label for="over-mij">Over mij</label>
-                <input type="text">
+                <input type="text" name="aboutMe">
+
                 <p>Opleidingen</p>
+                <input type="text" name="education">
                 <button>Opleidingen toevoegen<img src="./img/toevoegen.svg" alt="toevoegen"></button>
+
                 <p>Werkervaring</p>
+                <input type="text" name="workExperience">
                 <button>Werkervaring toevoegen<img src="./img/toevoegen.svg" alt="toevoegen"></button>
+
                 <label for="soft-skills">Soft skills</label>
-                <input type="text">
+                <input type="text" name="softSkills">
+
                 <label for="hard-skills">Hard skills</label>
-                <input type="text">
+                <input type="text" name="hardSkills">
+
+                <!-- SAVE BUTTON -->
+                <button name="submit" type="submit"><img src="./img/save.svg" alt="save"></button>
+
             </form>
 
         </section>
     </main>
-
-    <!-- SAVE BUTTON -->
-    <button type="submit"><img src="./img/save.svg" alt="save"></button>
 
     <!-- MENU -->
     <% include('partials/menu.ejs') %>
