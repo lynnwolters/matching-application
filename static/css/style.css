@@ -20,7 +20,7 @@
 }
 
 body {
-  background-color: var(--background-fill-color);
+  background-color: var(--background-color);
   position: relative;
   margin-bottom: 6em;
 }
@@ -34,13 +34,16 @@ a, button {
 /*********************/
 
 :root {
-  /* Colors */
-  --button-fill-color: #6337C2;
-  --save-button-fill-color: gray;
-  --header-fill-color: #0C0C0C;
-  --background-fill-color: #1A1720;
-  --title-text-color: #D8D8D8;
-  --p-text-color: #717171;
+  /* COLORS */
+  --button-color: #6337C2;
+  --save-button-color: gray;
+  --header-color: #0C0C0C;
+  --background-color: #1A1720;
+  --title-color: #D8D8D8;
+  --p-color: #717171;
   --button-text-color: white;
-  --input-field-line-color: #3A3A3A;
+  --line-color: #3A3A3A;
+
+  /* BORDERS */
+  --border: solid 0.1em var(--line-color);
 }

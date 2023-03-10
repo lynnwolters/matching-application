@@ -2,61 +2,64 @@
 /* INDEX HEADER */
 /*****************/
 
-header {
+body header {
+    background-color: var(--header-color);
+    height: 16em;
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(1fr, 2fr);
+    grid-template-columns: 1fr, 2fr;
     grid-column-gap: 1em;
-    background-color: var(--header-fill-color);
-    padding: 0 1em 1.4em 1em;
+    align-items: center;
+    padding: 0 1em;
 }
 
-header > img {
+body header > img {
+    max-width: 100%;
+    grid-column: span 1;
+    border-radius: 1em;
     opacity: 60%;
-    border-radius: 1.4em;
 }
 
-header section {
+body header section {
+    grid-column: span 2;
+    color: var(--button-text-color);
+}
+
+body header section h2 {
+    font-size: 1.4em;
+    color: var(--button-text-color);
+}
+
+body header section p {
+    color: var(--p-color);
+    font-size: 1em;
+    margin: .2em 0;
+}
+
+body header section span {
+    display: flex;
+}
+
+body header section span p img {
+    margin-right: .4em;
+}
+
+body header section span p:nth-of-type(2) {
+    margin-left: 1em
+}
+
+body header > a {
+    grid-column: span 3;
     display: flex;
     justify-content: center;
-    flex-direction: column;
-}
-
-header section h2 {
-    color: var(--title-text-color);
-    font-size: 1.4em;
-}
-
-header section span {
-    margin-top: 1em;
-    display: flex;
-}
-
-header section p {
-    font-size: 1em;
-    color: var(--p-text-color);
-}
-
-header section span p:nth-of-type(2) {
-    padding-left: 0.6em;
-}
-
-header section span p img {
-    padding-right: 0.6em;
-}
-
-header a {
-    background-color: var(--button-fill-color);
+    align-items: center;
     color: var(--button-text-color);
-    text-decoration: none;
-    text-align: center;
-    grid-column: span 2;
-    width: 100%;
-    padding: 1em 0;
-    margin: 0 auto;
-    margin-top: 2.4em;
+    background-color: var(--button-color);
     border-radius: 1em;
+    height: 3em;
+    text-decoration: none;
 }
 
-header a img {
-    padding-right: 0.6em;
+body header > a img {
+    margin-right: .4em;
 }

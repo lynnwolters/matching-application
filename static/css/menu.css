@@ -3,25 +3,28 @@
 /*********/
 
 body nav:nth-of-type(2) {
-    background-color: var(--header-fill-color);
-    height: 5.2em;
+    background-color: var(--header-color);
+    height: 6em;
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 100;
+    border-top: var(--border);
+    display: flex;
+    align-items: center;
 }
 
 body nav:nth-of-type(2) ul {
-    display: flex;
+    width: 100%;
     justify-content: space-between;
-    padding-top: 1.4em;
-    margin: 0 1em
+    display: flex;
+    margin: 0 1em;
 }
 
 body nav:nth-of-type(2) ul li .menu-item-geselecteerd {
     width: 0.5em;
-    height: 0.5em;
-    background-color: var(--button-fill-color);
-    border-radius: 1000em;
+    aspect-ratio: 1/1;
+    background-color: var(--button-color);
+    border-radius: 2000em;
     margin: 0 auto;
 }

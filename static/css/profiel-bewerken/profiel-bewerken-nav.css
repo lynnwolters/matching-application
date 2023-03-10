@@ -4,15 +4,27 @@
 
 body nav:nth-of-type(1) {
     display: flex;
+    align-items: center;
+    background-color: var(--background-color);
+    height: 6em;
+    border-bottom: var(--border);
+    padding: 0 1em;
 }
 
-body nav:nth-of-type(1) {
-    padding: 2.6em 1em;
+body nav:nth-of-type(1) a {
+    display: flex;
+    text-decoration: none;
+    position: fixed;
+    top: 2.2em;
+}
+
+body nav:nth-of-type(1) a p {
+    color: var(--button-text-color);
+    margin-left: .4em;
 }
 
 body nav:nth-of-type(1) h1 {
-    color: var(--title-text-color);
-    text-align: center;
+    color: var(--button-text-color);
     font-size: 1.4em;
     margin: 0 auto;
 }

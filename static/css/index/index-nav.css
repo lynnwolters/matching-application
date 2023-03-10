@@ -3,12 +3,16 @@
 /************/
 
 body nav:nth-of-type(1) {
-    background-color: var(--header-fill-color);
-    padding: 2.6em 1em;
+    display: flex;
+    align-items: center;
+    background-color: var(--header-color);
+    height: 6em;
+    border-bottom: var(--border);
+    padding: 0 1em;
 }
 
 body nav:nth-of-type(1) h1 {
-    color: var(--title-text-color);
-    text-align: center;
+    color: var(--button-text-color);
     font-size: 1.4em;
+    margin: 0 auto;
 }

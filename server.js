@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 // NODIG OM EXPRESS TE KUNNEN GEBRUIKEN
 const express = require('express')
 const app = express()
@@ -73,7 +75,7 @@ app.post('/index', function(req, res) {
 	myData[0].education = req.body.education
 
 	console.log(req.body.experience)
-	myData[0].experience = req.body.experience
+	myData[0].workExperience = req.body.workExperience
 
 	console.log(req.body.softSkills)
 	myData[0].softSkills = req.body.softSkills
@@ -97,7 +99,7 @@ function onHome(req, res) {
 		jobFunction: myData[0].jobFunction,
 		aboutMe: myData[0].aboutMe,
 		education: myData[0].education,
-		experience: myData[0].experience,
+		workExperience: myData[0].workExperience,
 		softSkills: myData[0].softSkills,
 		hardSkills: myData[0].hardSkills,
 	})

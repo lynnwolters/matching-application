@@ -2,18 +2,19 @@
 /* INDEX MAIN */
 /*************/
 
-main {
-    margin: 2.6em 1em;
+body main {
+    margin: 2em 0;
+    padding: 0 1em;
 }
 
-main section h2 {
-    color: var(--title-text-color);
+body main section h2 {
+    color: var(--button-text-color);
     font-size: 1.4em;
+    margin-bottom: .2em
 }
 
-main section p {
+body main section p {
     font-size: 1em;
-    color: var(--p-text-color);
-    margin-top: 0.6em;
-    margin-bottom: 1.8em;
+    color: var(--p-color);
+    margin-bottom: 1.4em;
 }
