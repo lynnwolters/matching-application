@@ -18,6 +18,10 @@ body nav:nth-of-type(1) a {
     top: 2.2em;
 }
 
+body nav:nth-of-type(1) a:hover {
+    animation: terug 1s ease-out;
+}
+
 body nav:nth-of-type(1) a p {
     color: var(--button-text-color);
     margin-left: .4em;
@@ -27,4 +31,18 @@ body nav:nth-of-type(1) h1 {
     color: var(--button-text-color);
     font-size: 1.4em;
     margin: 0 auto;
+}
+
+@keyframes terug {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-.5em, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
 }

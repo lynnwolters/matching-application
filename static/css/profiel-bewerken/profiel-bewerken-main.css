@@ -47,7 +47,8 @@ body main section:nth-of-type(1) form > button:last-of-type {
     border: none;
     background-color: var(--save-button-color);
     width: 100%;
-    margin: 2em 0;
+    margin-top: 2em;
+    margin-bottom: 10em;
     padding: 1em;
     color: var(--button-text-color);
     display: flex;
