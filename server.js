@@ -4,12 +4,31 @@
 const express = require('express')
 const app = express()
 
+// NODIG OM .ENV BESTAND IN TE LADEN
+require('dotenv').config({ path: '.env' })
+
 // LOCALHOST PORT //
 const PORT = process.env.PORT || 8000
 
+// // MONGO DB CONNECTIE 
+const { MongoClient, ServerApiVersion } = require('mongodb')
+const uri = process.env.DB_CONNECTION_STRING
+
+const client = new MongoClient(
+	uri, 
+	{ useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
+)
+
+client.connect()
+	.then((res) => console.log('@@-- connection established'))
+	.catch((err) => console.log('@@-- error', err))
+
+// PORT WAAR SERVER OP DRAAIT
 app.listen(PORT, function() {
 	console.log('Applicatie gestart op poort ' + PORT)
 })
+
+// DATA NAAR DATABASE STUREN
 
 // NODIG OM DATA OP EEN DYNAMISCHE MANIER IN TE LADEN
 const fs = require('fs')
@@ -21,33 +40,25 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-// NODIG OM .ENV BESTAND IN TE LADEN
-require('dotenv').config()
-
-// MONGO DB CONNECTIE 
-const { MongoClient } = require('mongodb')
-
-const uri = 'mongodb+srv://' + process.env.DB_USERNAME + ':' + process.env.DB_PASS + '@' +
-process.env.DB_NAME + '.' + process.env.DB_HOST + '/' + '?retryWrites=true&w=majority'
-
-console.log(uri)
-
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-
-client.connect((err) => { 
-	if (err) {
-		console.error('Er is een error gevonden tijdens het verbinden met MongoDB:', err)
-	} else {
-		console.log('Je bent verbonden met MongoDB!')
-	}
-})
-
 // VIEW ENGINES INLADEN
 app.set('view engine', 'ejs')
 app.set('views', 'view')
 
 // STATIC CONTENT INLADEN
 app.use(express.static('static'))
+
+// TEST
+app.get('/', async (req, res) => {
+	const db = client.db('matching-application').collection('sample_airbnb')
+	const example = await db.find({}).toArray()
+	console.log('@@-- data', example)
+	
+	res.json({
+		succes: true,
+		message: 'connected',
+		example
+	})
+})
 
 // FORM POST REQUEST AFHANDELEN
 app.post('/index', function(req, res) {
