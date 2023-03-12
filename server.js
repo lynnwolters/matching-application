@@ -12,11 +12,10 @@ const PORT = process.env.PORT || 8000
 
 // // MONGO DB CONNECTIE 
 const { MongoClient, ServerApiVersion } = require('mongodb')
-const uri = process.env.DB_CONNECTION_STRING
+const uri = process.env.DB_CONNECTION_STRING + '/matching-application'
 
 const client = new MongoClient(
-	uri, 
-	{ useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
+	uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
 )
 
 client.connect()
@@ -27,8 +26,6 @@ client.connect()
 app.listen(PORT, function() {
 	console.log('Applicatie gestart op poort ' + PORT)
 })
-
-// DATA NAAR DATABASE STUREN
 
 // NODIG OM DATA OP EEN DYNAMISCHE MANIER IN TE LADEN
 const fs = require('fs')
@@ -46,19 +43,6 @@ app.set('views', 'view')
 
 // STATIC CONTENT INLADEN
 app.use(express.static('static'))
-
-// TEST
-app.get('/', async (req, res) => {
-	const db = client.db('matching-application').collection('sample_airbnb')
-	const example = await db.find({}).toArray()
-	console.log('@@-- data', example)
-	
-	res.json({
-		succes: true,
-		message: 'connected',
-		example
-	})
-})
 
 // FORM POST REQUEST AFHANDELEN
 app.post('/index', function(req, res) {
