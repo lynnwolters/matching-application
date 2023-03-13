@@ -39,21 +39,6 @@ app.set('views', 'view')
 // STATIC CONTENT INLADEN
 app.use(express.static('static'))
 
-// app.post('/index', async (req,res) => {
-// 	console.log(req.body)
-
-// 	const collection = client.db('matching-application').collection('profiles')
-
-// 	collection.insertOne(req.body)
-// 		.then((result) => {
-// 			console.log('De data is opgeslagen in MongoDB!')
-// 			res.render('index', {profile: req.body})
-// 		})
-// 		.catch((error) => {
-// 			console.log(error)
-// 		})
-// })
-
 // INDEX.EJS: POST 
 app.post('/index', async (req, res) => {
 
