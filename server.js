@@ -39,7 +39,7 @@ app.set('views', 'view')
 // STATIC CONTENT INLADEN
 app.use(express.static('static'))
 
-// FORM POST REQUEST AFHANDELEN
+// FORM DATA OPSLAAN IN MONGODB
 app.post('/index', function(req, res) {
 	console.log(req.body)
 
@@ -55,10 +55,9 @@ app.post('/index', function(req, res) {
 		})
 })
 
-// INDEX.EJS INLADEN
+// INDEX.EJS INLADEN + FORM DATA INLADEN OP INDEX.EJS
 app.get('/index', onHome)
 function onHome(req, res) {
-	// console.log(myData[0])
 
 	const profiel = myData[0]
 
