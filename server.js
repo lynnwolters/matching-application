@@ -86,6 +86,8 @@ app.post('/index', async (req, res) => {
 			softSkills: softSkills,
 			hardSkills: hardSkills    }
 	})
+
+	res.redirect('/index')
 })
 
 // INDEX.EJS: GET 
