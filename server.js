@@ -79,6 +79,23 @@ app.post('/index', function(req, res) {
 	myData[0].hardSkills = req.body.hardSkills
 
 	res.redirect('/index')
+
+	// const formData = req.body
+	// console.log(body)
+
+	// let firstName
+	// let lastName
+	// let age
+
+	// if (firstName === undefined) {
+	// 	firstName = req.body.firstName
+	// }
+	// if (lastName === undefined) {
+	// 	lastName.value = lastName
+	// }
+	// if (age === undefined) {
+	// 	age.value = age
+	// }
 })
 
 // INDEX.EJS INLADEN
