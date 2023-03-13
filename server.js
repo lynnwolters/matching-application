@@ -39,37 +39,77 @@ app.set('views', 'view')
 // STATIC CONTENT INLADEN
 app.use(express.static('static'))
 
-// FORM DATA OPSLAAN IN MONGODB
-app.post('/index', function(req, res) {
+// app.post('/index', async (req,res) => {
+// 	console.log(req.body)
+
+// 	const collection = client.db('matching-application').collection('profiles')
+
+// 	collection.insertOne(req.body)
+// 		.then((result) => {
+// 			console.log('De data is opgeslagen in MongoDB!')
+// 			res.render('index', {profile: req.body})
+// 		})
+// 		.catch((error) => {
+// 			console.log(error)
+// 		})
+// })
+
+// INDEX.EJS: POST 
+app.post('/index', async (req, res) => {
+
 	console.log(req.body)
+
+	const { 
+		firstName, 
+		lastName, 
+		age, 
+		residence, 
+		jobFunction, 
+		aboutMe,
+		education, 
+		workExperience,
+		softSkills,
+		hardSkills  } = req.body  
 
 	const collection = client.db('matching-application').collection('profiles')
 
-	collection.insertOne(req.body)
-		.then((result) => {
-			console.log('De data is opgeslagen in MongoDB!')
-			res.render('index', {profiel: req.body})
-		})
-		.catch((error) => {
-			console.log(error)
-		})
+	await collection.findOneAndUpdate({}, {
+		$set: {
+			firstName: firstName, 
+			lastName: lastName, 
+			age: age, 
+			residence: residence, 
+			jobFunction: jobFunction, 
+			aboutMe: aboutMe,
+			education: education, 
+			workExperience: workExperience,
+			softSkills: softSkills,
+			hardSkills: hardSkills    }
+	})
 })
 
-// INDEX.EJS INLADEN + FORM DATA INLADEN OP INDEX.EJS
+// INDEX.EJS: GET 
 app.get('/index', onHome)
-function onHome(req, res) {
+async function onHome(req, res) {
+	const collection = client.db('matching-application').collection('profiles')
 
-	const profiel = myData[0]
+	const profile = await collection.findOne({})
 
 	res.render('index', {
-		profiel
+		profile    
 	})
 }
 
-// PROFIEL-BEWERKEN.EJS INLADEN
+// PROFIEL-BEWERKEN.EJS: GET 
 app.get('/profiel-bewerken', profielBewerken)
-function profielBewerken(req, res) {
-	res.render('profiel-bewerken')
+async function profielBewerken(req, res) {
+	const collection = client.db('matching-application').collection('profiles')
+
+	const profile = await collection.findOne()
+
+	res.render('profiel-bewerken', {
+		profile    
+	})
 }
 
 // 404 PAGE

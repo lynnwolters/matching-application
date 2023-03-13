@@ -55,42 +55,42 @@
                 <h2>Algemene informatie</h2>
 
                 <label>Voornaam</label>
-                <input placeholder="Vul in..." type="text" name="firstName">
+                <input placeholder="Vul in..." type="text" name="firstName" value="<%= profile.firstName %>">
 
                 <label>Achternaam</label>
-                <input placeholder="Vul in..." type="text" name="lastName">
+                <input placeholder="Vul in..." type="text" name="lastName" value="<%= profile.lastName %>">
 
                 <label>Leeftijd</label>
-                <input placeholder="Vul in..." type="number" name="age">
+                <input placeholder="Vul in..." type="number" name="age" value="<%= profile.age %>">
 
                 <label>Woonplaats</label>
-                <input placeholder="Vul in..." type="text" name="residence">
+                <input placeholder="Vul in..." type="text" name="residence" value="<%= profile.residence %>">
 
                 <label>Functie</label>
-                <input placeholder="Vul in..." type="text" name="jobFunction">
+                <input placeholder="Vul in..." type="text" name="jobFunction" value="<%= profile.jobFunction %>">
 
                 <!-- GEDETAILLEERDE INFORMATIE -->
                 <h2>Gedetailleerde informatie</h2>
                 
                 <label>Over mij</label>
-                <input placeholder="Vul in..." type="text" name="aboutMe">
+                <input placeholder="Vul in..." type="text" name="aboutMe" value="<%= profile.aboutMe %>">
 
                 <label>Opleidingen</label>
                 <button class="button-hover"><img src="./img/toevoegen.svg" alt="toevoegen">Opleidingen toevoegen</button>
-                <input placeholder="Vul in..." type="text" name="education">
+                <input placeholder="Vul in..." type="text" name="education" value="<%= profile.education %>">
 
                 <label>Werkervaring</label>
                 <button class="button-hover"><img src="./img/toevoegen.svg" alt="toevoegen">Werkervaring toevoegen</button>
-                <input placeholder="Vul in..." type="text" name="workExperience">
+                <input placeholder="Vul in..." type="text" name="workExperience" value="<%= profile.workExperience %>">
 
                 <label>Soft skills</label>
-                <input placeholder="Vul in..." type="text" name="softSkills">
+                <input placeholder="Vul in..." type="text" name="softSkills" value="<%= profile.softSkills %>">
 
                 <label>Hard skills</label>
-                <input placeholder="Vul in..." type="text" name="hardSkills">
+                <input placeholder="Vul in..." type="text" name="hardSkills" value="<%= profile.hardSkills %>">
 
                 <!-- SAVE BUTTON -->
-                <button type="submit" name="submit"><img src="./img/save.svg" alt="save">Opslaan</button>
+                <button type="submit"><img src="./img/save.svg" alt="save">Opslaan</button>
 
             </form>
 

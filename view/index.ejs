@@ -41,20 +41,20 @@
         <img src="./img/profiel-foto.jpg" alt="profiel-foto">
         <section>
 
-            <% if(profiel.firstName){ %>
-                <h2> <%= profiel.firstName %> </h2>
+            <% if(profile.firstName){ %>
+                <h2> <%= profile.firstName %> </h2>
             <% } else{ %>  
                 <h2>Geen voornaam</h2>
             <% } %>  
 
-            <% if(profiel.lastName){ %>
-                <h2> <%= profiel.lastName %> </h2>
+            <% if(profile.lastName){ %>
+                <h2> <%= profile.lastName %> </h2>
             <% } else{ %>  
                 <h2>Geen achternaam</h2>
             <% } %>  
 
-            <% if(profiel.jobFunction){ %>
-                <p> <%= profiel.jobFunction %> </p>
+            <% if(profile.jobFunction){ %>
+                <p> <%= profile.jobFunction %> </p>
             <% } else{ %>  
                 <p>Geen functie</p>
             <% } %>  
@@ -64,8 +64,8 @@
 
                     <img src="./img/leeftijd.svg" alt="leeftijd"> 
 
-                    <% if(profiel.age){ %>
-                        <p> <%= profiel.age %> </p>
+                    <% if(profile.age){ %>
+                        <p> <%= profile.age %> </p>
                     <% } else{ %>  
                         <p>Geen leeftijd</p>
                     <% } %>  
@@ -75,8 +75,8 @@
 
                     <img src="./img/locatie.svg" alt="locatie">
 
-                    <% if(profiel.residence){ %>
-                        <p> <%= profiel.residence %> </p>
+                    <% if(profile.residence){ %>
+                        <p> <%= profile.residence %> </p>
                     <% } else{ %>  
                         <p>Geen woonplaats</p>
                     <% } %>  
@@ -92,8 +92,8 @@
 
             <h2>Over mij</h2>
 
-            <% if(profiel.aboutMe){ %>
-                <p> <%= profiel.aboutMe %> </p>
+            <% if(profile.aboutMe){ %>
+                <p> <%= profile.aboutMe %> </p>
             <% } else{ %>  
                 <p>Geen over mij</p>
             <% } %>  
@@ -103,8 +103,8 @@
 
             <h2>Opleidingen</h2>
 
-            <% if(profiel.education){ %>
-                <p> <%= profiel.education %> </p>
+            <% if(profile.education){ %>
+                <p> <%= profile.education %> </p>
             <% } else{ %>  
                 <p>Geen opleidingen</p>
             <% } %>  
@@ -114,8 +114,8 @@
 
             <h2>Werkervaring</h2>
 
-            <% if(profiel.workExperience){ %>
-                <p> <%= profiel.workExperience %> </p>
+            <% if(profile.workExperience){ %>
+                <p> <%= profile.workExperience %> </p>
             <% } else{ %>  
                 <p>Geen werkervaring</p>
             <% } %>   
@@ -125,8 +125,8 @@
 
             <h2>Soft skills</h2>
             
-            <% if(profiel.softSkills){ %>
-                <p> <%= profiel.softSkills %> </p>
+            <% if(profile.softSkills){ %>
+                <p> <%= profile.softSkills %> </p>
             <% } else{ %>  
                 <p>Geen soft skills</p>
             <% } %>   
@@ -136,8 +136,8 @@
 
             <h2>Hard skills</h2>
 
-            <% if(profiel.hardSkills){ %>
-                <p> <%= profiel.hardSkills %> </p>
+            <% if(profile.hardSkills){ %>
+                <p> <%= profile.hardSkills %> </p>
             <% } else{ %>  
                 <p>Geen hard skills</p>
             <% } %>
