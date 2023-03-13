@@ -1,12 +1,3 @@
 [{
-    "firstName": "Voornaam",
-    "lastName": "Achternaam",
-    "age": "Leeftijd",
-    "residence": "Woonplaats",
-    "jobFunction": "Functie",
-    "aboutMe": "Nog invullen",
-    "education": "Nog invullen",
-    "workExperience": "Nog invullen",
-    "softSkills": "Nog invullen",
-    "hardSkills": "Nog invullen"
+
 }]

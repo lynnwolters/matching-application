@@ -13,7 +13,7 @@
 
     <!-- JS -->
     <script defer src="./js/save-button.js"></script>
-    <script defer src="./js/input-fields.js"></script>
+    <!-- <script defer src="./js/input-fields.js"></script> -->
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,11 +40,47 @@
     <header>
         <img src="./img/profiel-foto.jpg" alt="profiel-foto">
         <section>
-            <h2> <%= firstName %> <%= lastName %> </h2>
-            <p> <%= jobFunction %> </p>
+
+            <% if(profiel.firstName){ %>
+                <h2> <%= profiel.firstName %> </h2>
+            <% } else{ %>  
+                <h2>Geen voornaam</h2>
+            <% } %>  
+
+            <% if(profiel.lastName){ %>
+                <h2> <%= profiel.lastName %> </h2>
+            <% } else{ %>  
+                <h2>Geen achternaam</h2>
+            <% } %>  
+
+            <% if(profiel.jobFunction){ %>
+                <p> <%= profiel.jobFunction %> </p>
+            <% } else{ %>  
+                <p>Geen functie</p>
+            <% } %>  
+
             <span>
-                <p><img src="./img/leeftijd.svg" alt="leeftijd"> <%= age %> </p>
-                <p><img src="./img/locatie.svg" alt="locatie"> <%= residence %> </p>
+                <p>
+
+                    <img src="./img/leeftijd.svg" alt="leeftijd"> 
+
+                    <% if(profiel.age){ %>
+                        <p> <%= profiel.age %> </p>
+                    <% } else{ %>  
+                        <p>Geen leeftijd</p>
+                    <% } %>  
+
+                </p>
+                <p>
+
+                    <img src="./img/locatie.svg" alt="locatie">
+
+                    <% if(profiel.residence){ %>
+                        <p> <%= profiel.residence %> </p>
+                    <% } else{ %>  
+                        <p>Geen woonplaats</p>
+                    <% } %>  
+                </p>
             </span>
         </section>
         <a class="button-hover" href="/profiel-bewerken"><img src="./img/bewerk.svg" alt="bewerk">Profiel bewerken</a>
@@ -53,24 +89,59 @@
     <!-- MAIN -->
     <main>
         <section>
+
             <h2>Over mij</h2>
-            <p> <%= aboutMe %> </p>
+
+            <% if(profiel.aboutMe){ %>
+                <p> <%= profiel.aboutMe %> </p>
+            <% } else{ %>  
+                <p>Geen over mij</p>
+            <% } %>  
+
         </section>
         <section>
+
             <h2>Opleidingen</h2>
-            <p> <%= education %> </p>
+
+            <% if(profiel.education){ %>
+                <p> <%= profiel.education %> </p>
+            <% } else{ %>  
+                <p>Geen opleidingen</p>
+            <% } %>  
+
         </section>
         <section>
+
             <h2>Werkervaring</h2>
-            <p> <%= workExperience %> </p>
+
+            <% if(profiel.workExperience){ %>
+                <p> <%= profiel.workExperience %> </p>
+            <% } else{ %>  
+                <p>Geen werkervaring</p>
+            <% } %>   
+
         </section>
         <section>
+
             <h2>Soft skills</h2>
-            <p> <%= softSkills %> </p>
+            
+            <% if(profiel.softSkills){ %>
+                <p> <%= profiel.softSkills %> </p>
+            <% } else{ %>  
+                <p>Geen soft skills</p>
+            <% } %>   
+
         </section>
         <section>
+
             <h2>Hard skills</h2>
-            <p> <%= hardSkills %> </p>
+
+            <% if(profiel.hardSkills){ %>
+                <p> <%= profiel.hardSkills %> </p>
+            <% } else{ %>  
+                <p>Geen hard skills</p>
+            <% } %>
+
         </section>
     </main>
 

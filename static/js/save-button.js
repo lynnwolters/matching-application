@@ -4,7 +4,10 @@ window.onload = function() {
 	const inputFields = document.querySelectorAll('input')
 
 	let disabled = true
-	saveButton.disabled = disabled
+	
+	if (saveButton !== null) {
+		saveButton.disabled = disabled
+	}
 
 	inputFields.forEach((inputField) => {
 		inputField.addEventListener('input', () => {

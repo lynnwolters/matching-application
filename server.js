@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8000
 
 // // MONGO DB CONNECTIE 
 const { MongoClient, ServerApiVersion } = require('mongodb')
-const uri = process.env.DB_CONNECTION_STRING + '/matching-application'
+const uri = process.env.DB_CONNECTION_STRING
 
 const client = new MongoClient(
 	uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
@@ -26,11 +26,6 @@ client.connect()
 app.listen(PORT, function() {
 	console.log('Applicatie gestart op poort ' + PORT)
 })
-
-// NODIG OM DATA OP EEN DYNAMISCHE MANIER IN TE LADEN
-const fs = require('fs')
-const jsonData = fs.readFileSync('static/data/data.json', 'utf8')
-let myData = JSON.parse(jsonData)
 
 // BODYPARSER LATEN WERKEN
 const bodyParser = require('body-parser')
@@ -48,79 +43,34 @@ app.use(express.static('static'))
 app.post('/index', function(req, res) {
 	console.log(req.body)
 
-	console.log(req.body.firstName)
-	myData[0].firstName = req.body.firstName
+	const collection = client.db('matching-application').collection('profiles')
 
-	console.log(req.body.lastName)
-	myData[0].lastName = req.body.lastName
-
-	console.log(req.body.age)
-	myData[0].age = req.body.age
-
-	console.log(req.body.residence)
-	myData[0].residence = req.body.residence
-
-	console.log(req.body.jobFunction)
-	myData[0].jobFunction = req.body.jobFunction
-
-	console.log(req.body.aboutMe)
-	myData[0].aboutMe = req.body.aboutMe
-
-	console.log(req.body.education)
-	myData[0].education = req.body.education
-
-	console.log(req.body.experience)
-	myData[0].workExperience = req.body.workExperience
-
-	console.log(req.body.softSkills)
-	myData[0].softSkills = req.body.softSkills
-
-	console.log(req.body.hardSkills)
-	myData[0].hardSkills = req.body.hardSkills
-
-	res.redirect('/index')
-
-	// const formData = req.body
-	// console.log(body)
-
-	// let firstName
-	// let lastName
-	// let age
-
-	// if (firstName === undefined) {
-	// 	firstName = req.body.firstName
-	// }
-	// if (lastName === undefined) {
-	// 	lastName.value = lastName
-	// }
-	// if (age === undefined) {
-	// 	age.value = age
-	// }
+	collection.insertOne(req.body)
+		.then((result) => {
+			console.log('succes')
+			res.render('index', {profiel: req.body})
+		})
+		.catch((error) => {
+			console.log(error)
+		})
 })
 
 // INDEX.EJS INLADEN
 app.get('/index', onHome)
 function onHome(req, res) {
-	console.log(myData[0])
+	// console.log(myData[0])
 
-	res.render('index.ejs', {
-		firstName: myData[0].firstName,
-		lastName: myData[0].lastName,
-		age: myData[0].age,
-		residence: myData[0].residence,
-		jobFunction: myData[0].jobFunction,
-		aboutMe: myData[0].aboutMe,
-		education: myData[0].education,
-		workExperience: myData[0].workExperience,
-		softSkills: myData[0].softSkills,
-		hardSkills: myData[0].hardSkills,
+	const profiel = myData[0]
+
+	res.render('index', {
+		profiel
 	})
 }
 
 // PROFIEL-BEWERKEN.EJS INLADEN
 app.get('/profiel-bewerken', profielBewerken)
 function profielBewerken(req, res) {
-	res.render('profiel-bewerken.ejs')
+	res.render('profiel-bewerken')
 }
 
 // 404 PAGE
