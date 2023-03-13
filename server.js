@@ -47,7 +47,7 @@ app.post('/index', function(req, res) {
 
 	collection.insertOne(req.body)
 		.then((result) => {
-			console.log('succes')
+			console.log('De data is opgeslagen in MongoDB!')
 			res.render('index', {profiel: req.body})
 		})
 		.catch((error) => {
