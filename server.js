@@ -4,14 +4,19 @@
 // Om express functies te kunnen gebruiken
 const express = require('express')
 
-// Om een express applicatie  aan te maken
+// Om een express applicatie aan te maken
 const app = express()
-
-// Nodig om .env variablen in te laden / te lezen
-require('dotenv').config({ path: '.env' })
 
 // Luister naar poort 8000 als er geen andere poort gespecifieerd is
 const PORT = process.env.PORT || 8000
+
+// Luisteren naar inkomende requests die op deze poort binnen komen
+app.listen(PORT, function() {
+	console.log('Applicatie gestart op poort ' + PORT)
+})
+
+// Nodig om .env variablen in te laden / te lezen
+require('dotenv').config({ path: '.env' })
 
 // MongoClient en ServerApiVersion functies inladen om met de database te communiceren
 const { MongoClient, ServerApiVersion } = require('mongodb')
@@ -19,20 +24,15 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
 // MongoDB connection string inladen uit .env bestand
 const uri = process.env.DB_CONNECTION_STRING
 
-//  Connectie maken met mijn database met specifieke paramaeters om CRUD operations uit te kunnen voeren
+//  Connectie maken met mijn database met specifieke parameters om CRUD operations uit te kunnen voeren
 const client = new MongoClient(
 	uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
 )
 
-// Console log om te kijken of de connectie is gelukt of niet
+// Console log om te kijken of de connectie met MongoDb gelukt is of niet
 client.connect()
 	.then((res) => console.log('@@-- connection established'))
 	.catch((err) => console.log('@@-- error', err))
-
-// Luisteren naar inkomende requests die op deze poort binnen komen
-app.listen(PORT, function() {
-	console.log('Applicatie gestart op poort ' + PORT)
-})
 
 // Verzoeken vanuit de body kunnen lezen
 const bodyParser = require('body-parser')
@@ -51,6 +51,10 @@ app.set('views', 'view')
 
 // Functie om static files te maken en ze terug te geven 
 app.use(express.static('static'))
+
+// *************** //
+// POST INDEX.EJS //
+// *************** //
 
 // Functie die wordt uitgevoerd als er een POST request wordt gedaan op de index.ejs pagina
 app.post('/index', async (req, res) => {
@@ -93,6 +97,10 @@ app.post('/index', async (req, res) => {
 	res.redirect('/index')
 })
 
+// ************** //
+// GET INDEX.EJS //
+// ************** //
+
 // Code om een GET request af te handelen op de index.ejs pagina
 app.get('/index', onHome)
 
@@ -111,6 +119,10 @@ async function onHome(req, res) {
 	})
 }
 
+// ************************* //
+// GET PROFIEL-BEWERKEN.EJS //
+// ************************* //
+
 // Code om een GET request af te handelen op de profiel-bewerken.ejs pagina
 app.get('/profiel-bewerken', profielBewerken)
 
@@ -128,6 +140,10 @@ async function profielBewerken(req, res) {
 		profile    
 	})
 }
+
+// ******** //
+// 404 PAGE //
+// ******** //
 
 // 404: Functie uitvoeren als het pad niet bekend is bij de server
 app.use((req, res) => {

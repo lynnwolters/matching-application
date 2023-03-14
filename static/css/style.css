@@ -34,7 +34,7 @@ a, button {
 /*********************/
 
 :root {
-  /* COLORS */
+  /* Colors */
   --button-color: #6337C2;
   --save-button-color: gray;
   --header-color: #0C0C0C;
@@ -46,7 +46,7 @@ a, button {
   --button-hover-color: #411E8C;
   --save-button-hover-color: #565656;
 
-  /* BORDERS */
+  /* Borders */
   --border: solid 0.1em var(--line-color);
 }
 

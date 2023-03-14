@@ -3,24 +3,23 @@
 
 <head>
 
-    <!-- META -->
+    <!-- Meta -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- TITLE -->
+    <!-- Title -->
     <title>PixelJobs - Profiel Bewerken</title>
 
-    <!-- JS -->
+    <!-- Js -->
     <script defer src="./js/save-button.js"></script>
-    <!-- <script defer src="./js/input-fields.js"></script> -->
 
-    <!-- FONTS -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <!-- STYLESHEETS -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" type="text/css" href="./css/menu.css">
     <link rel="stylesheet" type="text/css" href="./css/profiel-bewerken/profiel-bewerken-nav.css">
@@ -31,13 +30,13 @@
 
 <body>
 
-    <!-- NAV -->
+    <!-- Nav -->
     <nav>
         <a href="/index"><img src="./img/terug.svg" alt="terug"><p>Terug</p></a>
         <h1>Profiel Bewerken</h1>
     </nav>
 
-    <!-- HEADER -->
+    <!-- Header -->
     <header>
         <div class="profile-picture-container">
             <img src="./img/profiel-foto.jpg" alt="profiel-foto">
@@ -45,13 +44,13 @@
         </div>
     </header>
 
-    <!-- MAIN -->
+    <!-- Main -->
     <main>
         <section>
 
             <form action="/index" method="POST">
 
-                <!-- ALGEMENE INFORMATIE -->
+                <!-- Algemene informatie -->
                 <h2>Algemene informatie</h2>
 
                 <label>Voornaam</label>
@@ -69,7 +68,7 @@
                 <label>Functie</label>
                 <input placeholder="Vul in..." type="text" name="jobFunction" value="<%= profile.jobFunction %>">
 
-                <!-- GEDETAILLEERDE INFORMATIE -->
+                <!-- Gedetaileerde informatie -->
                 <h2>Gedetailleerde informatie</h2>
                 
                 <label>Over mij</label>
@@ -89,7 +88,7 @@
                 <label>Hard skills</label>
                 <input placeholder="Vul in..." type="text" name="hardSkills" value="<%= profile.hardSkills %>">
 
-                <!-- SAVE BUTTON -->
+                <!-- Save button -->
                 <button type="submit"><img src="./img/save.svg" alt="save">Opslaan</button>
 
             </form>
@@ -97,7 +96,7 @@
         </section>
     </main>
 
-    <!-- MENU -->
+    <!-- Menu partial -->
     <%- include('menu-partial') %>
     
 </body>
