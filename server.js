@@ -1,69 +1,86 @@
-// om de foutmelding in eslint te verwijderen als een variable nog niet gedefined is
-/* eslint-disable no-undef */ 
+/* eslint-disable no-undef */ // om de foutmelding in eslint te verwijderen als een variable nog niet gedefined is
 
-// Om express functies te kunnen gebruiken
-const express = require('express')
 
-// Om een express applicatie aan te maken
-const app = express()
 
-// Luister naar poort 8000 als er geen andere poort gespecifieerd is
-const PORT = process.env.PORT || 8000
 
-// Luisteren naar inkomende requests die op deze poort binnen komen
-app.listen(PORT, function() {
+// *******//
+// EXPRESS //
+// ******* //
+
+const express = require('express') // Om express functies te kunnen gebruiken
+const app = express() // Om een express applicatie aan te maken
+
+
+
+
+// ***** //
+// PORT //
+// ***** //
+
+const PORT = process.env.PORT || 8000 // Luister naar poort 8000 als er geen andere poort gespecifieerd is
+
+app.listen(PORT, function() { // Luisteren naar inkomende requests die op deze poort binnen komen
 	console.log('Applicatie gestart op poort ' + PORT)
 })
 
-// Nodig om .env variablen in te laden / te lezen
-require('dotenv').config({ path: '.env' })
 
-// MongoClient en ServerApiVersion functies inladen om met de database te communiceren
-const { MongoClient, ServerApiVersion } = require('mongodb')
 
-// MongoDB connection string inladen uit .env bestand
-const uri = process.env.DB_CONNECTION_STRING
 
-//  Connectie maken met mijn database met specifieke parameters om CRUD operations uit te kunnen voeren
-const client = new MongoClient(
+// ******* //
+// DOTENV //
+// ******* //
+
+require('dotenv').config({ path: '.env' }) // Nodig om .env variablen in te laden / te lezen
+
+
+
+
+// ************************ //
+// MONGODB CONNECTIE MAKEN //
+// ************************ //
+
+const { MongoClient, ServerApiVersion } = require('mongodb') // MongoClient en ServerApiVersion functies inladen om met de database te communiceren
+const uri = process.env.DB_CONNECTION_STRING // MongoDB connection string inladen uit .env bestand
+
+const client = new MongoClient( // Connectie maken met mijn database met specifieke parameters om CRUD operations uit te kunnen voeren
 	uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
 )
 
-// Console log om te kijken of de connectie met MongoDb gelukt is of niet
-client.connect()
+client.connect() // Console log om te kijken of de connectie met MongoDb gelukt is of niet
 	.then((res) => console.log('@@-- connection established'))
 	.catch((err) => console.log('@@-- error', err))
 
-// Verzoeken vanuit de body kunnen lezen
-const bodyParser = require('body-parser')
 
-// Urlencoded verzoeken vanuit de body kunnen lezen
-app.use(bodyParser.urlencoded({ extended: true }))
 
-// JSON verzoeken vanuit de body kunnen lezen
-app.use(bodyParser.json())
 
-// Instellen welke view engine ik gebruik
-app.set('view engine', 'ejs')
+// *********** //
+// BODYPARSER //
+// *********** //
 
-// De map waarin de view engines zich bevinden
-app.set('views', 'view')
+const bodyParser = require('body-parser') // Verzoeken vanuit de body kunnen lezen
 
-// Functie om static files te maken en ze terug te geven 
-app.use(express.static('static'))
+app.use(bodyParser.urlencoded({ extended: true })) // Urlencoded verzoeken vanuit de body kunnen lezen
+
+app.use(bodyParser.json()) // JSON verzoeken vanuit de body kunnen lezen
+
+app.set('view engine', 'ejs') // Instellen welke view engine ik gebruik
+
+app.set('views', 'view') // De map waarin de view engines zich bevinden
+
+app.use(express.static('static')) // Functie om static files te maken en ze terug te geven 
+
+
+
 
 // *************** //
 // POST INDEX.EJS //
 // *************** //
 
-// Functie die wordt uitgevoerd als er een POST request wordt gedaan op de index.ejs pagina
-app.post('/index', async (req, res) => {
+app.post('/index', async (req, res) => { // Functie die wordt uitgevoerd als er een POST request wordt gedaan op de index.ejs pagina
 
-	// Luisteren naar requests uit de body die gebruikers aanvragen
-	console.log(req.body)
+	console.log(req.body) // Luisteren naar requests uit de body die gebruikers aanvragen
 
-	// Variablen geven aan de ingevulde gegevens die vanuit de request body komen
-	const { 
+	const { // Variablen geven aan de ingevulde gegevens die vanuit de request body komen
 		firstName, 
 		lastName, 
 		age, 
@@ -75,11 +92,9 @@ app.post('/index', async (req, res) => {
 		softSkills,
 		hardSkills  } = req.body  
 
-	// Collectie aanmaken in MongoDB met de naam 'profiles'
-	const collection = client.db('matching-application').collection('profiles')
+	const collection = client.db('matching-application').collection('profiles') // Collectie aanmaken in MongoDB met de naam 'profiles'
 
-	// Updaten van het eerste bestand in de collectie 'profiles' met de nieuwe waardes
-	await collection.findOneAndUpdate({}, {
+	await collection.findOneAndUpdate({}, { // Updaten van het eerste bestand in de collectie 'profiles' met de nieuwe waardes
 		$set: {
 			firstName: firstName, 
 			lastName: lastName, 
@@ -93,61 +108,54 @@ app.post('/index', async (req, res) => {
 			hardSkills: hardSkills    }
 	})
 
-	// Doorsturen naar index.ejs na het uitvoeren van de functie
-	res.redirect('/index')
+	res.redirect('/index') // Doorsturen naar index.ejs na het uitvoeren van de functie
 })
+
+
+
 
 // ************** //
 // GET INDEX.EJS //
 // ************** //
 
-// Code om een GET request af te handelen op de index.ejs pagina
-app.get('/index', onHome)
+app.get('/index', onHome) // Code om een GET request af te handelen op de index.ejs pagina
 
-// Functie die wordt uitgevoerd als er een GET request wordt gedaan op de index.ejs pagina
-async function onHome(req, res) {
+async function onHome(req, res) { // Functie die wordt uitgevoerd als er een GET request wordt gedaan op de index.ejs pagina
 
-	// MongoDB gebruiker aanmaken in de collectie 'profiles'
-	const collection = client.db('matching-application').collection('profiles')
+	const collection = client.db('matching-application').collection('profiles') // MongoDB gebruiker aanmaken in de collectie 'profiles'
+	const profile = await collection.findOne({}) // Eerste document in de collectie 'profiles' pakken
 
-	// Eerste document in de collectie 'profiles' pakken
-	const profile = await collection.findOne({})
-
-	// Profile object renderen op index.ejs pagina (resultaten opgeslagen input fields)
-	res.render('index', {
+	res.render('index', { // Profile object renderen op index.ejs pagina (resultaten opgeslagen input fields)
 		profile    
 	})
 }
+
+
+
 
 // ************************* //
 // GET PROFIEL-BEWERKEN.EJS //
 // ************************* //
 
-// Code om een GET request af te handelen op de profiel-bewerken.ejs pagina
-app.get('/profiel-bewerken', profielBewerken)
+app.get('/profiel-bewerken', profielBewerken) // Code om een GET request af te handelen op de profiel-bewerken.ejs pagina
 
-// Functie die wordt uitgevoerd als er een GET request wordt gedaan op de profiel-bewerken.ejs pagina
-async function profielBewerken(req, res) {
+async function profielBewerken(req, res) { // Functie die wordt uitgevoerd als er een GET request wordt gedaan op de profiel-bewerken.ejs pagina
 
-	// MongoDB gebruiker aanmaken in de collectie 'profiles'
-	const collection = client.db('matching-application').collection('profiles')
+	const collection = client.db('matching-application').collection('profiles') // MongoDB gebruiker aanmaken in de collectie 'profiles'
+	const profile = await collection.findOne() // Eerste document in de collectie 'profiles' pakken
 
-	// Eerste document in de collectie 'profiles' pakken
-	const profile = await collection.findOne()
-
-	// Profile object renderen op pagina-bewerken.ejs pagina (zien wat er op het moment is ingevuld)
-	res.render('profiel-bewerken', {
+	res.render('profiel-bewerken', { // Profile object renderen op pagina-bewerken.ejs pagina (zien wat er op het moment is ingevuld)
 		profile    
 	})
 }
+
+
+
 
 // ******** //
 // 404 PAGE //
 // ******** //
 
-// 404: Functie uitvoeren als het pad niet bekend is bij de server
-app.use((req, res) => {
-
-	// Status code sturen met een bericht dat verteld wat er aan de hand is 
-	res.status(404).send('<h1>Deze pagina kan niet gevonden worden.</h1>')
+app.use((req, res) => { // 404: Functie uitvoeren als het pad niet bekend is bij de server
+	res.status(404).send('<h1>Deze pagina kan niet gevonden worden.</h1>') // Status code sturen met een bericht dat verteld wat er aan de hand is 
 })

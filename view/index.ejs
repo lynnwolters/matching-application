@@ -11,9 +11,6 @@
     <!-- Title -->
     <title>PixelJobs - Home</title>
 
-    <!-- Js -->
-    <script defer src="./js/save-button.js"></script>
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,22 +37,20 @@
         <img src="./img/profiel-foto.jpg" alt="profiel-foto">
         <section>
 
-            <% if(profile.firstName){ %>
+            <% if (profile.firstName && profile.lastName) { %>
+                <h2> <%= `${profile.firstName} ${profile.lastName}` %> </h2> 
+            <% } else if (profile.firstName) { %>  
                 <h2> <%= profile.firstName %> </h2>
-            <% } else{ %>  
-                <h2>Geen voornaam</h2>
-            <% } %>  
-
-            <% if(profile.lastName){ %>
+            <% } else if (profile.lastName) { %>  
                 <h2> <%= profile.lastName %> </h2>
-            <% } else{ %>  
-                <h2>Geen achternaam</h2>
-            <% } %>  
+            <% } else { %>
+                <h2> Geen naam </h2>
+            <% } %>
 
-            <% if(profile.jobFunction){ %>
+            <% if (profile.jobFunction) { %>
                 <p> <%= profile.jobFunction %> </p>
-            <% } else{ %>  
-                <p>Geen functie</p>
+            <% } else { %>  
+                <p> Geen functie </p>
             <% } %>  
 
             <span>
@@ -63,10 +58,10 @@
 
                     <img src="./img/leeftijd.svg" alt="leeftijd"> 
 
-                    <% if(profile.age){ %>
+                    <% if (profile.age) { %>
                         <p> <%= profile.age %> </p>
-                    <% } else{ %>  
-                        <p>Geen leeftijd</p>
+                    <% } else { %>  
+                        <p> Geen leeftijd </p>
                     <% } %>  
 
                 </p>
@@ -74,10 +69,10 @@
 
                     <img src="./img/locatie.svg" alt="locatie">
 
-                    <% if(profile.residence){ %>
+                    <% if (profile.residence) { %>
                         <p> <%= profile.residence %> </p>
-                    <% } else{ %>  
-                        <p>Geen woonplaats</p>
+                    <% } else { %>  
+                        <p> Geen woonplaats </p>
                     <% } %>  
                 </p>
             </span>
@@ -91,10 +86,10 @@
 
             <h2>Over mij</h2>
 
-            <% if(profile.aboutMe){ %>
+            <% if (profile.aboutMe) { %>
                 <p> <%= profile.aboutMe %> </p>
-            <% } else{ %>  
-                <p>Geen over mij</p>
+            <% } else { %>  
+                <p> Geen over mij </p>
             <% } %>  
 
         </section>
@@ -102,10 +97,10 @@
 
             <h2>Opleidingen</h2>
 
-            <% if(profile.education){ %>
+            <% if (profile.education) { %>
                 <p> <%= profile.education %> </p>
-            <% } else{ %>  
-                <p>Geen opleidingen</p>
+            <% } else { %>  
+                <p> Geen opleidingen </p>
             <% } %>  
 
         </section>
@@ -113,10 +108,10 @@
 
             <h2>Werkervaring</h2>
 
-            <% if(profile.workExperience){ %>
+            <% if (profile.workExperience) { %>
                 <p> <%= profile.workExperience %> </p>
-            <% } else{ %>  
-                <p>Geen werkervaring</p>
+            <% } else { %>  
+                <p> Geen werkervaring </p>
             <% } %>   
 
         </section>
@@ -126,8 +121,8 @@
             
             <% if(profile.softSkills){ %>
                 <p> <%= profile.softSkills %> </p>
-            <% } else{ %>  
-                <p>Geen soft skills</p>
+            <% } else { %>  
+                <p> Geen soft skills </p>
             <% } %>   
 
         </section>
@@ -137,8 +132,8 @@
 
             <% if(profile.hardSkills){ %>
                 <p> <%= profile.hardSkills %> </p>
-            <% } else{ %>  
-                <p>Geen hard skills</p>
+            <% } else { %>  
+                <p> Geen hard skills </p>
             <% } %>
 
         </section>

@@ -19,6 +19,7 @@ body nav:nth-of-type(2) ul {
     justify-content: space-between;
     display: flex;
     margin: 0 1em;
+    list-style-type: none;
 }
 
 body nav:nth-of-type(2) ul li .menu-item-geselecteerd {

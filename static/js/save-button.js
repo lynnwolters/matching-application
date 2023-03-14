@@ -1,62 +1,29 @@
-// Voer deze functie uit als de pagina geladen wordt
-window.onload = function() {
+const saveButton = document.querySelector('#save-button') // Variable aanmaken voor #save-button
+const inputValue = document.querySelectorAll('.input-value') // Variable aanmaken voor .input-value
+const inputValueArray = [...inputValue] // Variable aanmaken met een array waarin de input value vast wordt gelegd
+const inputWithStartValues = inputValueArray.map((inputValue) => { // inputValueArray omzetten naar een nieuwe array (inputWithStartValues)
 
-	// Variable om save button op te halen
-	const saveButton = document.querySelector('button[name="submit"]')
-
-	// Variable om alle input fields op te halen
-	const inputFields = document.querySelectorAll('input')
-    
-	// Variable disabled aanmaken die vanuit default true is (dus disabled)
-	let disabled = true
 	
-	// Checken of savebutton anders is dan null...
-	if (saveButton !== null) {
-
-		// Als dat zo is, voeg dan de disabled variable toe aan de save button (button is disabled)
-		saveButton.disabled = disabled
+	return { // Objecten creëren voor de huidige objecten in de loop
+		inputValue: inputValue,
+		value: inputValue.value,
 	}
+})
 
-	// Arrow functie aanmaken met de variable inputFields die boven gedeclareerd is, vervolgens een nieuwe variable aanmaken genaamd inputField
-	inputFields.forEach((inputField) => {
+saveButton.disabled = true // Variable die bovenaan is gedeclareerd wordt standaard op disabled gezet
 
-		// 'Input' event listener meegeven aan inputField variable
-		inputField.addEventListener('input', () => {
+inputValue.forEach((item, index) => { // Voor elke input value...
 
-			// Variable hasValue aanmaken die vanuit default nog geen waarde heeft
-			let hasValue = false
+	item.addEventListener('keyup', (event) => { // Voeg een keyup eventlistener toe (check of er wordt getypt in een input field)
 
-			// Voor elke input field...
-			inputFields.forEach((field) => {
-
-				// Als de input field value niet leeg is 
-				if (field.value.trim() !== '') {
-
-					// Voeg dan deze variable toe, ofwel hij heeft wel een waarde gekregen
-					hasValue = true
-				}
-			})
-
-			// Als er een value in de input fields staat
-			if (hasValue) {
-
-				// Dan wordt de save button beschikbaar
-				disabled = false
-
-				// En krijgt het een groene kleur
-				saveButton.style.backgroundColor = 'green'
-
-			// Anders...
-			} else {
-
-				// Is de save button disabled 
-				disabled = true
-
-				// Blijft de save button kleur grijs
-				saveButton.style.backgroundColor = ''
-			}
-
-			saveButton.disabled = disabled
+		const filteredArray = inputWithStartValues.filter((item) => { // inputWithStartValues filteren 
+			return item.inputValue.value !== item.value // Kijken of inputValue verschilt ten opzichte van value
 		})
+        
+		if (filteredArray.length) { 
+			saveButton.disabled = false // Als de lengte van de array groter dan 0 is, dan wordt de button unlocked
+		} else {
+			saveButton.disabled = true // Als de lengte van de array kleiner is dan 0, dan is de button disabled
+		}
 	})
-}
+})
