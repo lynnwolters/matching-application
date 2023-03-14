@@ -63,9 +63,22 @@ app.use(bodyParser.urlencoded({ extended: true })) // Urlencoded verzoeken vanui
 
 app.use(bodyParser.json()) // JSON verzoeken vanuit de body kunnen lezen
 
+
+
+// ************ //
+// VIEW ENGINES //
+// ************ //
+
 app.set('view engine', 'ejs') // Instellen welke view engine ik gebruik
 
 app.set('views', 'view') // De map waarin de view engines zich bevinden
+
+
+
+
+// ************* //
+// STATIC FILES //
+// ************* //
 
 app.use(express.static('static')) // Functie om static files te maken en ze terug te geven 
 
