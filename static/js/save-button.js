@@ -55,8 +55,7 @@ window.onload = function() {
 				// Blijft de save button kleur grijs
 				saveButton.style.backgroundColor = ''
 			}
-
-			// 
+ 
 			saveButton.disabled = disabled
 		})
 	})
