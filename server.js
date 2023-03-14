@@ -42,11 +42,11 @@ require('dotenv').config({ path: '.env' }) // Nodig om .env variablen in te lade
 const { MongoClient, ServerApiVersion } = require('mongodb') // MongoClient en ServerApiVersion functies inladen om met de database te communiceren
 const uri = process.env.DB_CONNECTION_STRING // MongoDB connection string inladen uit .env bestand
 
-const client = new MongoClient( // Connectie maken met mijn database met specifieke parameters om CRUD operations uit te kunnen voeren
+const mongoClient = new MongoClient( // Connectie maken met mijn database met specifieke parameters om CRUD operations uit te kunnen voeren
 	uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
 )
 
-client.connect() // Console log om te kijken of de connectie met MongoDb gelukt is of niet
+mongoClient.connect() // Console log om te kijken of de connectie met MongoDb gelukt is of niet
 	.then((res) => console.log('@@-- connection established'))
 	.catch((err) => console.log('@@-- error', err))
 
@@ -105,7 +105,7 @@ app.post('/index', async (req, res) => { // Functie die wordt uitgevoerd als er 
 		softSkills,
 		hardSkills  } = req.body  
 
-	const collection = client.db('matching-application').collection('profiles') // Collectie aanmaken in MongoDB met de naam 'profiles'
+	const collection = mongoClient.db('matching-application').collection('profiles') // Collectie aanmaken in MongoDB met de naam 'profiles'
 
 	await collection.findOneAndUpdate({}, { // Updaten van het eerste bestand in de collectie 'profiles' met de nieuwe waardes
 		$set: {
@@ -135,7 +135,7 @@ app.get('/index', onHome) // Code om een GET request af te handelen op de index.
 
 async function onHome(req, res) { // Functie die wordt uitgevoerd als er een GET request wordt gedaan op de index.ejs pagina
 
-	const collection = client.db('matching-application').collection('profiles') // MongoDB gebruiker aanmaken in de collectie 'profiles'
+	const collection = mongoClient.db('matching-application').collection('profiles') // MongoDB gebruiker aanmaken in de collectie 'profiles'
 	const profile = await collection.findOne({}) // Eerste document in de collectie 'profiles' pakken
 
 	res.render('index', { // Profile object renderen op index.ejs pagina (resultaten opgeslagen input fields)
@@ -154,7 +154,7 @@ app.get('/profiel-bewerken', profielBewerken) // Code om een GET request af te h
 
 async function profielBewerken(req, res) { // Functie die wordt uitgevoerd als er een GET request wordt gedaan op de profiel-bewerken.ejs pagina
 
-	const collection = client.db('matching-application').collection('profiles') // MongoDB gebruiker aanmaken in de collectie 'profiles'
+	const collection = mongoClient.db('matching-application').collection('profiles') // MongoDB gebruiker aanmaken in de collectie 'profiles'
 	const profile = await collection.findOne() // Eerste document in de collectie 'profiles' pakken
 
 	res.render('profiel-bewerken', { // Profile object renderen op pagina-bewerken.ejs pagina (zien wat er op het moment is ingevuld)

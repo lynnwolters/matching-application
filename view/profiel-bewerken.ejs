@@ -53,20 +53,20 @@
                 <!-- Algemene informatie -->
                 <h2>Algemene informatie</h2>
 
-                <label>Voornaam</label>
-                <input placeholder="Vul in..." type="text" name="firstName" value="<%= profile.firstName %>" class="input-value">
+                <label>Voornaam *</label>
+                <input placeholder="Vul in..." type="text" name="firstName" value="<%= profile.firstName %>" class="input-value" pattern="[A-Za-z]+" title="Alleen letters toegestaan" required>
 
-                <label>Achternaam</label>
-                <input placeholder="Vul in..." type="text" name="lastName" value="<%= profile.lastName %>" class="input-value">
+                <label>Achternaam *</label>
+                <input placeholder="Vul in..." type="text" name="lastName" value="<%= profile.lastName %>" class="input-value" pattern="[A-Za-z]+" title="Alleen letters toegestaan" required>
 
-                <label>Leeftijd</label>
-                <input placeholder="Vul in..." type="number" name="age" value="<%= profile.age %>" class="input-value">
+                <label>Leeftijd *</label>
+                <input placeholder="Vul in..." type="text" name="age" value="<%= profile.age %>" class="input-value" pattern="\d+" title="Alleen cijfers toegestaan" required>
 
-                <label>Woonplaats</label>
-                <input placeholder="Vul in..." type="text" name="residence" value="<%= profile.residence %>" class="input-value">
+                <label>Woonplaats *</label>
+                <input placeholder="Vul in..." type="text" name="residence" value="<%= profile.residence %>" class="input-value" required>
 
-                <label>Functie</label>
-                <input placeholder="Vul in..." type="text" name="jobFunction" value="<%= profile.jobFunction %>" class="input-value">
+                <label>Functie *</label>
+                <input placeholder="Vul in..." type="text" name="jobFunction" value="<%= profile.jobFunction %>" class="input-value" required>
 
                 <!-- Gedetaileerde informatie -->
                 <h2>Gedetailleerde informatie</h2>

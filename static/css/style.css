@@ -39,12 +39,14 @@ a, button {
   --save-button-color: gray;
   --header-color: #0C0C0C;
   --background-color: #1A1720;
-  --title-color: #D8D8D8;
+  --title-color: white;
   --p-color: #717171;
   --button-text-color: white;
   --line-color: #3A3A3A;
   --button-hover-color: #411E8C;
   --save-button-hover-color: #565656;
+  
+  --main-color-1: white;
 
   /* Borders */
   --border: solid 0.1em var(--line-color);
