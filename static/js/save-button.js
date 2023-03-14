@@ -46,7 +46,7 @@ window.onload = function() {
 				// En krijgt het een groene kleur
 				saveButton.style.backgroundColor = 'green'
 
-		    // Anders...
+			// Anders...
 			} else {
 
 				// Is de save button disabled 
@@ -55,7 +55,7 @@ window.onload = function() {
 				// Blijft de save button kleur grijs
 				saveButton.style.backgroundColor = ''
 			}
- 
+
 			saveButton.disabled = disabled
 		})
 	})
