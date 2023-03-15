@@ -34,6 +34,15 @@ npm start
 Is het niet gelukt? Raadpleeg dan de volgende pagina:
 https://github.com/nvm-sh/nvm#troubleshooting-on-macos
 
+## Gebouwd met
+
+Deze applicatie is gebouwd met:
+
+* Node.js / NPM (om de applicatie te bouwen)
+* Express.js (framework voor de applicatie)
+* EJS Templating Engine (om data op een dynamische manier in te laden)
+* MongoDB (hierin worden de gegevens opgeslagen)
+
 ## License
 
 [BSD 3-Clause License](https://github.com/lynnwolters/matching-application/blob/main/LICENSE.md)
