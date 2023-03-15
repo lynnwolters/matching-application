@@ -23,7 +23,7 @@ node -v
 npm -v 
 ```
 
-Je kan nu de applicatie openen met:
+4. Je kan nu de applicatie openen met:
 
 ```js
 npm start
