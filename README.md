@@ -34,7 +34,7 @@ npm start
 Is het niet gelukt? Raadpleeg dan de volgende pagina:
 https://github.com/nvm-sh/nvm#troubleshooting-on-macos
 
-## Gebouwd met
+## Gebouwd met:
 
 Deze applicatie is gebouwd met:
 
@@ -46,6 +46,8 @@ Deze applicatie is gebouwd met:
 ## License
 
 [BSD 3-Clause License](https://github.com/lynnwolters/matching-application/blob/main/LICENSE.md)
+
+## Wiki
 
 Check de wiki voor meer informatie over dit project:
 https://github.com/lynnwolters/matching-application/wiki
