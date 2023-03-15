@@ -31,7 +31,7 @@ npm start
 
 ## License
 
-BS3 Link
+BSD 3-Clause License [Link](https://github.com/lynnwolters/matching-application/blob/main/LICENSE.md)
 
 Check de wiki voor meer informatie over dit project:
 https://github.com/lynnwolters/matching-application/wiki
