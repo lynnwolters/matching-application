@@ -29,12 +29,12 @@ npm -v
 npm start
 ```
 
+Is het niet gelukt? Raadpleeg dan de volgende pagina:
+https://github.com/nvm-sh/nvm#troubleshooting-on-macos
+
 ## License
 
-BSD 3-Clause License [Link](https://github.com/lynnwolters/matching-application/blob/main/LICENSE.md)
+[BSD 3-Clause License](https://github.com/lynnwolters/matching-application/blob/main/LICENSE.md)
 
 Check de wiki voor meer informatie over dit project:
 https://github.com/lynnwolters/matching-application/wiki
-
-Is het niet gelukt? Raadpleeg dan de volgende pagina:
-https://github.com/nvm-sh/nvm#troubleshooting-on-macos
