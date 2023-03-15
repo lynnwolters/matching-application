@@ -17,12 +17,21 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 ```
 
 3. Met deze command lines kan je kijken of Node.js en NMP succesvol geïnstalleerd zijn:
+
 ```js
 node -v 
 npm -v 
 ```
 
-Je kan nu de applicatie openen!
+Je kan nu de applicatie openen met:
+
+```js
+npm start
+```
+
+## License
+
+BS3 Link
 
 Check de wiki voor meer informatie over dit project:
 https://github.com/lynnwolters/matching-application/wiki
