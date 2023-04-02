@@ -105,7 +105,7 @@ app.post('/index', async (req, res) => { // Functie die wordt uitgevoerd als er 
 		softSkills,
 		hardSkills  } = req.body  
 
-	const locationName = req.body.locationName || ''
+	const locationName = req.body.locationName || '' // locationName ophalen
 
 	const collection = mongoClient.db('matching-application').collection('profiles') // Collectie aanmaken in MongoDB met de naam 'profiles'
 

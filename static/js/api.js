@@ -1,34 +1,36 @@
-function getLocation() { 
+function getLocation() { // Controleer of geolocatie wordt ondersteund door de browser
+
 	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(showPosition)
+		navigator.geolocation.getCurrentPosition(showPosition) // Als geolocatie wordt ondersteund, haal de huidige locatie op en roep de functie showPosition aan
 	} else {
-		x.innerHTML = 'Geolocation wordt niet gesupport door deze browser.'
+		x.innerHTML = 'Geolocation wordt niet gesupport door deze browser.' // Als geolocatie niet wordt ondersteund, laat een bericht zien aan de gebruiker
 	}
 }
 
 function showPosition(pos) {
-	console.log(pos.coords)
+	
+	console.log(pos.coords) // Toon de coördinaten van de locatie in de console
 
-	document.querySelector(
+	document.querySelector ( // Verberg het 4e label in het formulier in de sectie van de hoofdpagina
 		'main section form label:nth-of-type(4)'
 	).style.display = 'none'
 
-	const map = L.map('map').setView(
+	const map = L.map('map').setView ( // Maak een nieuwe Leaflet kaart aan met de coördinaten van de huidige locatie
 		[pos.coords.latitude, pos.coords.longitude],
 		13
 	)
 
-	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { // Voeg een OpenStreetMap-tegel-laag toe aan de kaart
 		maxZoom: 19,
 		attribution: 'Mijn adres',
 	}).addTo(map)
 
-	const locationData = {
+	const locationData = { // Maak een object aan met de locatiegegevens
 		latitude: pos.coords.latitude,
 		longitude: pos.coords.longitude,
 	}
 
-	fetch(
+	fetch ( // Gebruik Nominatim van OpenStreetMap om de locatiegegevens op te halen en de locatie naam in het inputveld te plaatsen
 		`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${locationData.latitude}&lon=${locationData.longitude}`
 	)
 		.then((response) => response.json())
@@ -40,10 +42,11 @@ function showPosition(pos) {
 			console.error('Error bij opslaan locatie data: ', error)
 		})
 
-	document.querySelector('.location').style.height = '18em'
-	document.querySelector('.location .location-text label').style.display = 'block'
+	document.querySelector('.location').style.height = '18em' // Pas de hoogte van de .location div aan en toon het label van de locatie
+	document.querySelector('.location .location-text label').style.display = 'block' // Laat label weer zien
 }
 
-getLocation()
+getLocation() // Roep de getLocation functie aan om de locatie op te halen
+
 
 
