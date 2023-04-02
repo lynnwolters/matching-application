@@ -76,8 +76,9 @@
 
                 <div class="location" style="height: 0;">
                     <div class="location-text">
-                        <label style="display: none;">Huidige locatie:</label>
-                        <div class="location-name"></div>
+                        <label style="display: none;">Huidige locatie (pas aan indien u ergens anders woont) *
+                        <input type="text" name="locationName" id="locationName" value=" <%= profile.locationName %> ">
+                        </label>
                     </div>
                     <div id="map"></div>
                 </div>

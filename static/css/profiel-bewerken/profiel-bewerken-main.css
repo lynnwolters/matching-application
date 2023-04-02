@@ -25,13 +25,8 @@ body main section form input {
     color: var(--p-color);
 }
 
-.location-text {
-    display: flex;
-}
-
-.location-name {
-    margin-left: .4em;
-    color: white;
+.location-text label input {
+    width: 100%;
 }
 
 #map {

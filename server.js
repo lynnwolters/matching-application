@@ -105,6 +105,8 @@ app.post('/index', async (req, res) => { // Functie die wordt uitgevoerd als er 
 		softSkills,
 		hardSkills  } = req.body  
 
+	const locationName = req.body.locationName || ''
+
 	const collection = mongoClient.db('matching-application').collection('profiles') // Collectie aanmaken in MongoDB met de naam 'profiles'
 
 	await collection.findOneAndUpdate({}, { // Updaten van het eerste bestand in de collectie 'profiles' met de nieuwe waardes
@@ -113,6 +115,7 @@ app.post('/index', async (req, res) => { // Functie die wordt uitgevoerd als er 
 			lastName: lastName, 
 			age: age, 
 			residence: residence, 
+			locationName: locationName,
 			jobFunction: jobFunction, 
 			aboutMe: aboutMe,
 			education: education, 

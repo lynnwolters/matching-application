@@ -34,13 +34,13 @@ function showPosition(pos) {
 		.then((response) => response.json())
 		.then((data) => {
 			const locationName = data.address.city || data.address.town || data.address.village || 'Onbekende locatie'
-			document.querySelector('.location-name').textContent = locationName
+			document.querySelector('#locationName').value = locationName
 		})
 		.catch((error) => {
 			console.error('Error bij opslaan locatie data: ', error)
 		})
 
-    document.querySelector('.location').style.height = '14em'
+	document.querySelector('.location').style.height = '18em'
 	document.querySelector('.location .location-text label').style.display = 'block'
 }
 
