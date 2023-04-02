@@ -12,7 +12,12 @@
     <title>PixelJobs - Profiel Bewerken</title>
 
     <!-- Js -->
+    <script defer src="./js/api.js"></script>
     <script defer src="./js/save-button.js"></script>
+
+    <!-- API inladen -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,40 +58,58 @@
                 <!-- Algemene informatie -->
                 <h2>Algemene informatie</h2>
 
-                <label>Voornaam *</label>
+                <label>Voornaam *
                 <input placeholder="Vul in..." type="text" name="firstName" value="<%= profile.firstName %>" class="input-value" pattern="[A-Za-z]+" title="Alleen letters toegestaan" required>
+                </label>
 
-                <label>Achternaam *</label>
+                <label>Achternaam *
                 <input placeholder="Vul in..." type="text" name="lastName" value="<%= profile.lastName %>" class="input-value" pattern="[A-Za-z]+" title="Alleen letters toegestaan" required>
+                </label>
 
-                <label>Leeftijd *</label>
+                <label>Leeftijd *
                 <input placeholder="Vul in..." type="text" name="age" value="<%= profile.age %>" class="input-value" pattern="\d+" title="Alleen cijfers toegestaan" required>
+                </label>
 
-                <label>Woonplaats *</label>
+                <label>Woonplaats *
                 <input placeholder="Vul in..." type="text" name="residence" value="<%= profile.residence %>" class="input-value" required>
+                </label>
 
-                <label>Functie *</label>
+                <div class="location" style="height: 0;">
+                    <div class="location-text">
+                        <label style="display: none;">Huidige locatie:</label>
+                        <div class="location-name"></div>
+                    </div>
+                    <div id="map"></div>
+                </div>
+            
+                <label>Functie *
                 <input placeholder="Vul in..." type="text" name="jobFunction" value="<%= profile.jobFunction %>" class="input-value" required>
+                </label>
 
                 <!-- Gedetaileerde informatie -->
                 <h2>Gedetailleerde informatie</h2>
                 
-                <label>Over mij</label>
+                <label>Over mij
                 <input placeholder="Vul in..." type="text" name="aboutMe" value="<%= profile.aboutMe %>" class="input-value">
+                </label>
 
-                <label>Opleidingen</label>
+                <label>Opleidingen
                 <button class="button-hover"><img src="./img/toevoegen.svg" alt="toevoegen">Opleidingen toevoegen</button>
                 <input placeholder="Vul in..." type="text" name="education" value="<%= profile.education %>" class="input-value">
+                </label>
 
-                <label>Werkervaring</label>
+                <label>Werkervaring
                 <button class="button-hover"><img src="./img/toevoegen.svg" alt="toevoegen">Werkervaring toevoegen</button>
                 <input placeholder="Vul in..." type="text" name="workExperience" value="<%= profile.workExperience %>" class="input-value">
+                </label>
 
-                <label>Soft skills</label>
+                <label>Soft skills
                 <input placeholder="Vul in..." type="text" name="softSkills" value="<%= profile.softSkills %>" class="input-value">
+                </label>
 
-                <label>Hard skills</label>
+                <label>Hard skills
                 <input placeholder="Vul in..." type="text" name="hardSkills" value="<%= profile.hardSkills %>" class="input-value">
+                </label>
 
                 <!-- Save button -->
                 <button type="submit" id="save-button"><img src="./img/save.svg" alt="save">Opslaan</button>
