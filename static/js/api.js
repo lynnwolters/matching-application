@@ -42,7 +42,7 @@ function showPosition(pos) {
 			console.error('Error bij opslaan locatie data: ', error)
 		})
 
-	document.querySelector('.location').style.height = '18em' // Pas de hoogte van de .location div aan en toon het label van de locatie
+	document.querySelector('.location').style.height = '18em' // Pas de hoogte van de .location div aan
 	document.querySelector('.location .location-text label').style.display = 'block' // Laat label weer zien
 }
 
