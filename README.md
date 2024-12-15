@@ -1,8 +1,8 @@
-![Frame 2](https://user-images.githubusercontent.com/47858242/225268858-9b2a35f9-b482-45f1-b700-368a87be3fc3.jpg)
-
 # Matching-application: PixelJobs
 
 Welkom bij de repository voor de matching application PixelJobs! Met deze applicatie kunnen bedrijven en werkzoekenden in de digitale product industrie met elkaar matchen op basis van waar ze naar opzoek zijn in een werknemer / bedrijf. Op deze manier wordt het sollicitatie proces versneld en kun je er zeker van zijn dat het goed klikt tussen beide partijen. De feature die is uitgewerkt in code is: een profiel aan kunnen maken / bewerken als werkzoekende.
+
+![Frame 2](https://user-images.githubusercontent.com/47858242/225268858-9b2a35f9-b482-45f1-b700-368a87be3fc3.jpg)
 
 ## Hoe installeer je deze applicatie?
 
